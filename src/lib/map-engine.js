@@ -13,35 +13,56 @@ function haversineKm(p, q) {
   return 2 * R * Math.asin(Math.sqrt(s));
 }
 
-function anchorsFor(F, i) {
+function segmentoOf(f) {
+  // Cada "segmento" es una línea fronteriza independiente (p.ej. el límite
+  // norte compartido con Benjamín y el límite sur por Cadés-Barnea son dos
+  // rutas distintas). Los inferidos solo se interpolan entre anclas de su
+  // propio segmento, y la línea nunca conecta el final de uno con el
+  // comienzo de otro aunque el "orden" global sea consecutivo.
+  return f.properties.segmento || 'default';
+}
+
+function groupBySegmento(F) {
+  const groups = new Map();
+  F.forEach(f => {
+    const seg = segmentoOf(f);
+    if (!groups.has(seg)) groups.set(seg, []);
+    groups.get(seg).push(f);
+  });
+  return groups;
+}
+
+function anchorsFor(group, i) {
   // Solo los rasgos con render "punto"/"inferido" tienen una coordenada
   // puntual válida como ancla. Las "zona" son LineString/Polygon y no sirven
   // para interpolar una posición.
   const isAnchor = f => f.geometry && f.properties.render !== 'zona';
   let a = null, b = null;
-  for (let k = i - 1; k >= 0; k--) if (isAnchor(F[k])) { a = F[k]; break; }
-  for (let k = i + 1; k < F.length; k++) if (isAnchor(F[k])) { b = F[k]; break; }
+  for (let k = i - 1; k >= 0; k--) if (isAnchor(group[k])) { a = group[k]; break; }
+  for (let k = i + 1; k < group.length; k++) if (isAnchor(group[k])) { b = group[k]; break; }
   return [a, b];
 }
 
 function computePositions(F) {
   const POS = {};
-  F.forEach((f, i) => {
-    const p = f.properties;
-    if (p.render === 'zona') return;
-    if (f.geometry) {
-      POS[p.id] = { lat: f.geometry.coordinates[1], lng: f.geometry.coordinates[0], inferida: false, haloM: 0 };
-      return;
-    }
-    const [a, b] = anchorsFor(F, i);
-    if (!a || !b) return;
-    const t = (p.orden - a.properties.orden) / (b.properties.orden - a.properties.orden);
-    const A = a.geometry.coordinates, B = b.geometry.coordinates;
-    POS[p.id] = {
-      lat: A[1] + (B[1] - A[1]) * t, lng: A[0] + (B[0] - A[0]) * t,
-      inferida: true, haloM: haversineKm(A, B) * 1000 * 0.35
-    };
-  });
+  for (const group of groupBySegmento(F).values()) {
+    group.forEach((f, i) => {
+      const p = f.properties;
+      if (p.render === 'zona') return;
+      if (f.geometry) {
+        POS[p.id] = { lat: f.geometry.coordinates[1], lng: f.geometry.coordinates[0], inferida: false, haloM: 0 };
+        return;
+      }
+      const [a, b] = anchorsFor(group, i);
+      if (!a || !b) return;
+      const t = (p.orden - a.properties.orden) / (b.properties.orden - a.properties.orden);
+      const A = a.geometry.coordinates, B = b.geometry.coordinates;
+      POS[p.id] = {
+        lat: A[1] + (B[1] - A[1]) * t, lng: A[0] + (B[0] - A[0]) * t,
+        inferida: true, haloM: haversineKm(A, B) * 1000 * 0.35
+      };
+    });
+  }
   return POS;
 }
 
@@ -127,11 +148,13 @@ export async function initAtlasMap(root) {
 
   function drawLine() {
     layerLine.clearLayers();
-    const pts = F.filter(f => POS[f.properties.id]);
-    for (let i = 0; i < pts.length - 1; i++) {
-      const A = POS[pts[i].properties.id], B = POS[pts[i + 1].properties.id];
-      L.polyline([[A.lat, A.lng], [B.lat, B.lng]],
-        segStyle(pts[i].properties, pts[i + 1].properties)).addTo(layerLine);
+    for (const group of groupBySegmento(F).values()) {
+      const pts = group.filter(f => POS[f.properties.id]);
+      for (let i = 0; i < pts.length - 1; i++) {
+        const A = POS[pts[i].properties.id], B = POS[pts[i + 1].properties.id];
+        L.polyline([[A.lat, A.lng], [B.lat, B.lng]],
+          segStyle(pts[i].properties, pts[i + 1].properties)).addTo(layerLine);
+      }
     }
   }
 
@@ -171,28 +194,32 @@ export async function initAtlasMap(root) {
   }
 
   function buildRail() {
-    const tramos = [...new Set(F.map(f => f.properties.tramo))].sort((a, b) => a - b);
+    const segmentoLabels = DATA.metadata?.segmentos || {};
     let h = `<div class="ctrls">
       <label><input type="checkbox" id="tInf" checked> Mostrar posiciones inferidas</label>
       <label><input type="checkbox" id="tLine" checked> Mostrar el trazado de la frontera</label>
       <label><input type="checkbox" id="tDan"> Marcar lo que después pasó a Dan</label>
       <label><input type="checkbox" id="tZone" checked> Mostrar valles y regiones</label>
     </div>`;
-    tramos.forEach(t => {
-      h += `<div class="tramo">Tramo ${t}</div>`;
-      F.filter(f => f.properties.tramo === t).forEach(f => {
-        const p = f.properties, q = POS[p.id];
-        const sg = p.render === 'zona' ? SIG.no_aplica : SIG[p.coordenada_estado];
-        const isZoneDrawn = p.render === 'zona' && f.geometry;
-        const dim = !q && !isZoneDrawn;
-        h += `<div class="row${dim ? ' dim' : ''}" data-id="${p.id}">
-          <span class="n">${String(p.orden).padStart(2, '0')}</span>
-          <span class="sg c-${p.confianza}">${sg}</span>
-          <span><span class="nm">${p.nombre}</span>
-          <span class="id">${p.render === 'zona' ? (isZoneDrawn ? 'Zona · trazada' : 'Zona · sin trazar todavía') : (p.identificacion || 'sin identificación')}</span></span>
-        </div>`;
+    for (const [seg, group] of groupBySegmento(F)) {
+      if (segmentoLabels[seg]) h += `<div class="segmento">${segmentoLabels[seg]}</div>`;
+      const tramos = [...new Set(group.map(f => f.properties.tramo))].sort((a, b) => a - b);
+      tramos.forEach(t => {
+        h += `<div class="tramo">Tramo ${t}</div>`;
+        group.filter(f => f.properties.tramo === t).forEach(f => {
+          const p = f.properties, q = POS[p.id];
+          const sg = p.render === 'zona' ? SIG.no_aplica : SIG[p.coordenada_estado];
+          const isZoneDrawn = p.render === 'zona' && f.geometry;
+          const dim = !q && !isZoneDrawn;
+          h += `<div class="row${dim ? ' dim' : ''}" data-id="${p.id}">
+            <span class="n">${String(p.orden).padStart(2, '0')}</span>
+            <span class="sg c-${p.confianza}">${sg}</span>
+            <span><span class="nm">${p.nombre}</span>
+            <span class="id">${p.render === 'zona' ? (isZoneDrawn ? 'Zona · trazada' : 'Zona · sin trazar todavía') : (p.identificacion || 'sin identificación')}</span></span>
+          </div>`;
+        });
       });
-    });
+    }
     h += `<div class="leg"><h2>Cómo leer el mapa</h2>
       <dl>
         <dt style="color:var(--olive)">●</dt><dd>Coordenada verificada con fuente</dd>
