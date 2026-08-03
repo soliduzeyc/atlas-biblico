@@ -1,0 +1,16 @@
+/* Paleta y tipografía del Atlas Bíblico, extraídas de docs/prototipo-mapa-original.html */
+:root {
+  --iron: #232A28;
+  --paper: #E4E3DB;
+  --paper-2: #D9D8CE;
+  --line: #B9B8AC;
+  --olive: #5F7248;
+  --ochre: #B0813C;
+  --ash: #8A8C85;
+  --sea: #3E6572;
+  --ink-2: #4A524F;
+
+  --f-disp: "Instrument Serif", Georgia, serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}

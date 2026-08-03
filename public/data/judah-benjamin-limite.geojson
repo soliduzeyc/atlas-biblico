@@ -1,0 +1,1266 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "titulo": "Límite Judá–Benjamín",
+    "version": "4.0",
+    "fecha": "2026-07-28",
+    "traduccion_base": "Traducción del Nuevo Mundo, revisión 2019",
+    "pasajes": [
+      "Josué 15:5-12",
+      "Josué 18:14-20"
+    ],
+    "sentido_orden": "este a oeste (según Josué 15)",
+    "esquema": "atlas-esquema-v2.md",
+    "coordenadas_verificadas": 4,
+    "coordenadas_pendientes": 15,
+    "total_registros": 27,
+    "coordenadas_rechazadas": [
+      {
+        "registro": "quiryat-jearim",
+        "candidato_rechazado": "Kiryat Ye'arim / Telz-Stone (31.80333, 35.10000)",
+        "motivo": "Es una localidad moderna fundada en el siglo XX. La propia ficha aclara que está 'en el área aproximada' del sitio antiguo. No es Deir el-ʽAzar."
+      },
+      {
+        "registro": "ecron",
+        "candidato_rechazado": "Kiryat Ekron (31.86097, 34.82306)",
+        "motivo": "Localidad moderna. La asociación de la aldea de ʽAqir con Ecrón fue descartada; el nombre moderno perpetúa un error del período del Mandato británico."
+      },
+      {
+        "registro": "jabneel",
+        "candidato_rechazado": "Yavne'el (32.70944, 35.49944)",
+        "motivo": "Está en Galilea. Corresponde al Jabneel de Neftalí (Jos 19:33), no al de Judá. Homónimo ya marcado en el campo advertencia."
+      },
+      {
+        "registro": "jabneel",
+        "candidato_rechazado": "Yavne-Yam (31.92278, 34.69333) y Gan Yavne (31.78222, 34.70528)",
+        "motivo": "Yavne-Yam es el puerto costero, un yacimiento distinto. Gan Yavne es una localidad moderna de 1931 sin relación con el sitio bíblico."
+      }
+    ],
+    "campo_precision": {
+      "sitio": "Coordenada del sitio arqueológico. Precisión alta.",
+      "localidad": "Coordenada del pueblo o localidad moderna que contiene o vecina al sitio. Dibujar con anillo de imprecisión.",
+      "null": "Sin coordenada."
+    },
+    "coordenadas_provisionales": 8,
+    "nota_v3": "Se incorporan 8 coordenadas de lectura asistida como PROVISIONALES. Dos de ellas (en-roguel, bet-semes) fueron detectadas como copia literal del ejemplo de formato de la hoja de campo; se conservan por pasar validación geométrica, pero marcadas en 'advertencia'. Ninguna coordenada provisional se dibuja como punto sólido.",
+    "campo_tribu_posterior": "Registra si un lugar del límite de Judá fue después adjudicado a otra tribu. El límite norte de Judá en el Tramo 3 atraviesa territorio asignado luego a Dan (Jos 19:40-48). Niveles de certeza: 'nombrado' (la ciudad aparece por su nombre en la lista), 'probable' (aparece una forma variante del nombre), 'solo_cartografico' (no está en el texto; solo lo sombrea el mapa B6 de la TNM). Contexto: Jos 19:47 y Jue 18 relatan que Dan no logró retener este territorio y emigró al norte.",
+    "nota_v4": "Se trazaron 5 de las 6 zonas como LineString con anclajes reales citados (puertas de Jerusalén, Colonia Alemana, Qasr al-Yahud, Bet-Hoglá, costa de Ashdod/Nitzanim). El valle de Acor queda explícitamente pendiente: no hay fuente que dé coordenadas del altiplano el-Buqeiʽah, solo su descripción cualitativa. El Arabá y la bahía norte del mar Salado comparten el mismo corredor por indicación del propio texto (Jos 18:18-19)."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bahia-norte-mar-salado",
+        "nombre": "Bahía norte del mar Salado",
+        "aliases": [
+          {
+            "forma": "Mar Muerto",
+            "fuente": "TNM 2019, nota al pie Jos 15:5"
+          },
+          {
+            "forma": "Mar Salado",
+            "fuente": "RV60"
+          }
+        ],
+        "identificacion": "Desembocadura del Jordán en el mar Muerto",
+        "confianza": "alta",
+        "fuente": "Texto bíblico",
+        "render": "zona",
+        "coordenada_estado": "provisional",
+        "fuente_coordenada": "Qasr al-Yahud: coordenada de sitio (Wikipedia). Bet-Hoglá: ya verificada en este dataset.",
+        "referencias": [
+          "Jos 15:5",
+          "Jos 18:19"
+        ],
+        "tramo": 1,
+        "orden": 1,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "Punto de arranque de la frontera. Rasgo hídrico, no asentamiento. | Corredor aproximado del Jordán entrando a la cuenca norte del mar Salado, NO la línea de costa real de la bahía (que ha cambiado con el nivel histórico del mar Muerto).",
+        "advertencia": null,
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.539167,
+            31.838333
+          ],
+          [
+            35.50194,
+            31.82028
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bet-hogla",
+        "nombre": "Bet-Hoglá",
+        "aliases": [
+          {
+            "forma": "Bet-hogla",
+            "fuente": "RV60"
+          },
+          {
+            "forma": "Bet Hogla",
+            "fuente": "Biblia Textual"
+          },
+          {
+            "forma": "Bet Joglá",
+            "fuente": "Biblia de Jerusalén"
+          }
+        ],
+        "identificacion": "Deir Hajla",
+        "confianza": "media",
+        "fuente": "Consenso general; pendiente confirmar en Perspicacia",
+        "render": "punto",
+        "coordenada_estado": "verificada",
+        "fuente_coordenada": "Ficha geográfica de Deir Hajla",
+        "referencias": [
+          "Jos 15:6",
+          "Jos 18:19"
+        ],
+        "tramo": 1,
+        "orden": 2,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "Jos 18:19 precisa que la frontera pasaba por su ladera norte.",
+        "advertencia": null,
+        "precision": "sitio",
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.50194,
+          31.82028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bet-araba",
+        "nombre": "Bet-Arabá",
+        "aliases": [
+          {
+            "forma": "Bet-arabá",
+            "fuente": "RV60"
+          },
+          {
+            "forma": "Bet Haarabá",
+            "fuente": "Biblia de Jerusalén"
+          }
+        ],
+        "identificacion": "ʿAin el-Gharabeh",
+        "confianza": "media",
+        "fuente": "Propuesta habitual; pendiente confirmar en Perspicacia",
+        "render": "inferido",
+        "coordenada_estado": "pendiente",
+        "fuente_coordenada": null,
+        "referencias": [
+          "Jos 15:6",
+          "Jos 18:22"
+        ],
+        "tramo": 1,
+        "orden": 3,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "La frontera pasaba al norte de la ciudad, no por ella.",
+        "advertencia": "También figura en Jos 15:61 como ciudad de Judá en el desierto.",
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "el-araba",
+        "nombre": "El Arabá",
+        "aliases": [
+          {
+            "forma": "Arabá",
+            "fuente": "TNM 2019, Jos 18:18"
+          },
+          {
+            "forma": "Valle del Jordán",
+            "fuente": "NTV"
+          }
+        ],
+        "identificacion": "Depresión del Jordán",
+        "confianza": "alta",
+        "fuente": "Texto bíblico",
+        "render": "zona",
+        "coordenada_estado": "provisional",
+        "fuente_coordenada": "Mismos anclajes que 'bahía norte del mar Salado' (Qasr al-Yahud, Bet-Hoglá).",
+        "referencias": [
+          "Jos 18:18"
+        ],
+        "tramo": 1,
+        "orden": 4,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "Dato exclusivo de Josué 18. No aparece en Josué 15. Es el ejemplo claro del valor de cruzar ambos pasajes. | Jos 18:18 sitúa El Arabá en el mismo tramo que la bahía norte del mar Salado (18:19): son la misma región geográfica nombrada dos veces en el texto. No se traza como zona distinta por falta de fuente que las diferencie; comparte corredor con 'bahia-norte-mar-salado'.",
+        "advertencia": null,
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.539167,
+            31.838333
+          ],
+          [
+            35.50194,
+            31.82028
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "piedra-de-bohan",
+        "nombre": "Piedra de Bohán hijo de Rubén",
+        "aliases": [
+          {
+            "forma": "Peña de Bohan Ben-rubén",
+            "fuente": "DHH"
+          },
+          {
+            "forma": "Piedra de Bohán ben Rubén",
+            "fuente": "Biblia Textual"
+          }
+        ],
+        "identificacion": null,
+        "confianza": "baja",
+        "fuente": null,
+        "render": "inferido",
+        "coordenada_estado": "pendiente",
+        "fuente_coordenada": null,
+        "referencias": [
+          "Jos 15:6",
+          "Jos 18:17"
+        ],
+        "tramo": 1,
+        "orden": 5,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "Mojón conmemorativo, no un asentamiento. Su desaparición física es esperable.",
+        "advertencia": null,
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "valle-de-acor",
+        "nombre": "Valle de Acor",
+        "aliases": [
+          {
+            "forma": "Llanura baja de Acor",
+            "fuente": "Perspicacia"
+          },
+          {
+            "forma": "Valle de Acor",
+            "fuente": "RV60"
+          }
+        ],
+        "identificacion": "el-Buqeiʽah (Biqʽat Hureqanya)",
+        "confianza": "media",
+        "fuente": "Perspicacia, entrada 'Acor'",
+        "render": "zona",
+        "coordenada_estado": "pendiente",
+        "fuente_coordenada": null,
+        "referencias": [
+          "Jos 15:7",
+          "Jos 7:24-26"
+        ],
+        "tramo": 1,
+        "orden": 6,
+        "pertenece_a": [
+          "juda"
+        ],
+        "nota": "Perspicacia descarta Wadi Qelt: la descripción de Jos 15:7 lo sitúa más al sur, e Is 65:10 sugiere una zona más amplia. Propone la meseta árida al norte y sur de Wadi Qumrán, cerca del extremo NO del mar Muerto. | Sin coordenada citable para la EXTENSIÓN del altiplano el-Buqeiʽah. Qumrán (31.74083, 35.45861) queda justo debajo, en la orilla, y sirve de referencia de orientación, pero no se usa como geometría porque no es el valle mismo.",
+        "advertencia": "Muchos atlas comerciales lo ubican en Wadi Qelt. No copiar de ellos.",
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "debir-norte",
+        "nombre": "Debir",
+        "aliases": [
+          {
+            "forma": "Debir",
+            "fuente": "RV60"
+          }
+        ],
+        "identificacion": null,
+        "confianza": "baja",
+        "fuente": null,
+        "render": "inferido",
+        "coordenada_estado": "pendiente",
+        "fuente_coordenada": null,
+        "referencias": [
+          "Jos 15:7"
+        ],
+        "tramo": 1,
+        "orden": 7,
+        "pertenece_a": [
+          "juda"
+        ],
+        "nota": "La TNM 2019 lo ubica DENTRO del valle de Acor. Otras versiones lo tratan como punto separado al que la frontera subía DESDE el valle. Este proyecto usa la lectura TNM.",
+        "advertencia": "NO confundir con el Debir de Jos 15:15 (Quiryat-Séfer), en la región montañosa del sur. Son ciudades distintas con el mismo nombre.",
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "guilgal-guelilot",
+        "nombre": "Guilgal / Guelilot",
+        "aliases": [
+          {
+            "forma": "Guelilot",
+            "fuente": "TNM 2019, Jos 18:17"
+          },
+          {
+            "forma": "Gelilot",
+            "fuente": "RV60, Jos 18:17"
+          },
+          {
+            "forma": "Guilgal",
+            "fuente": "TNM 2019, Jos 15:7"
+          }
+        ],
+        "identificacion": null,
+        "confianza": "baja",
+        "fuente": null,
+        "render": "inferido",
+        "coordenada_estado": "pendiente",
+        "fuente_coordenada": null,
+        "referencias": [
+          "Jos 15:7",
+          "Jos 18:17"
+        ],
+        "tramo": 1,
+        "orden": 8,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "Un solo punto con dos formas del nombre. Ambos pasajes lo sitúan enfrente de la subida de Adumim, lo que confirma la identidad.",
+        "advertencia": "NO es el Guilgal de Josué 4 (el del cruce del Jordán).",
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "subida-de-adumim",
+        "nombre": "Subida de Adumim",
+        "aliases": [
+          {
+            "forma": "Cuesta de Adumim",
+            "fuente": "DHH"
+          },
+          {
+            "forma": "Subida de Adumín",
+            "fuente": "RV60"
+          },
+          {
+            "forma": "Maʽale Adummim",
+            "fuente": "Perspicacia (hebreo)"
+          },
+          {
+            "forma": "Talʽat ed-Damm",
+            "fuente": "Perspicacia (árabe)"
+          }
+        ],
+        "identificacion": "Talʽat ed-Damm",
+        "confianza": "alta",
+        "fuente": "Perspicacia, entrada 'Adumim'",
+        "render": "inferido",
+        "coordenada_estado": "provisional",
+        "fuente_coordenada": "Lectura cartográfica asistida (Gemini Flash-Lite, 03-08-2026), sin confirmación directa. Validada por control geométrico (monotonía de longitud + contraste con descripciones de Perspicacia).",
+        "referencias": [
+          "Jos 15:7",
+          "Jos 18:17"
+        ],
+        "tramo": 1,
+        "orden": 9,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "El nombre significa 'Subida de Sangre'. Perspicacia atribuye el nombre al color rojizo del suelo, rico en ocre, más que a los asaltantes de caminos que mencionaban escritores antiguos. | Museo del Buen Samaritano / Khan al-Hatruri, paso histórico de la ruta antigua Jerusalén–Jericó.",
+        "advertencia": null,
+        "precision": "sitio",
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.3585,
+          31.8153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "en-semes",
+        "nombre": "En-Semes",
+        "aliases": [
+          {
+            "forma": "En-semes",
+            "fuente": "RV60"
+          },
+          {
+            "forma": "Ein-semes",
+            "fuente": "Biblia Textual"
+          },
+          {
+            "forma": "Ensemes",
+            "fuente": "NVI"
+          }
+        ],
+        "identificacion": "ʿAin el-Hod",
+        "confianza": "media",
+        "fuente": "Propuesta habitual; pendiente confirmar en Perspicacia",
+        "render": "inferido",
+        "coordenada_estado": "provisional",
+        "fuente_coordenada": "Lectura cartográfica asistida (Gemini Flash-Lite, 03-08-2026), sin confirmación directa. Validada por control geométrico (monotonía de longitud + contraste con descripciones de Perspicacia).",
+        "referencias": [
+          "Jos 15:7",
+          "Jos 18:17"
+        ],
+        "tramo": 1,
+        "orden": 10,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "Manantial. El nombre significa 'Fuente del Sol'. | Manantial Ayn al-Hawd. Cae dentro del corredor Adumim–En-Roguel, como exige el texto.",
+        "advertencia": null,
+        "precision": "sitio",
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.27167,
+          31.77389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "en-roguel",
+        "nombre": "En-Roguel",
+        "aliases": [
+          {
+            "forma": "En-roguel",
+            "fuente": "Perspicacia"
+          },
+          {
+            "forma": "En-rogel",
+            "fuente": "NTV"
+          },
+          {
+            "forma": "Fuente de Rogel",
+            "fuente": "RV60"
+          },
+          {
+            "forma": "Bir Ayyub",
+            "fuente": "Perspicacia (árabe)"
+          }
+        ],
+        "identificacion": "Bir Ayyub (pozo de Job)",
+        "confianza": "alta",
+        "fuente": "Perspicacia, entrada 'En-roguel'",
+        "render": "inferido",
+        "coordenada_estado": "provisional",
+        "fuente_coordenada": "Lectura cartográfica asistida (Gemini Flash-Lite, 03-08-2026), sin confirmación directa. Validada por control geométrico (monotonía de longitud + contraste con descripciones de Perspicacia).",
+        "referencias": [
+          "Jos 15:7",
+          "Jos 18:16",
+          "2Sa 17:17",
+          "1Re 1:9"
+        ],
+        "tramo": 1,
+        "orden": 11,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "Al sur de la esquina sureste de la muralla de Jerusalén, al pie de la margen occidental del valle de Cedrón, unos 100 m al sur de su confluencia con el valle de Hinón. Descripción suficientemente precisa para levantar coordenada. | Bir Ayyub. Validación geométrica: 523 m al sur de la Ciudad de David; Perspicacia describe ~500 m al S de la confluencia Cedrón–Hinón.",
+        "advertencia": " ⚠️ ORIGEN CONTAMINADO: este valor coincide carácter por carácter con el ejemplo de formato ficticio de la sección 'Cómo me lo devuelves' de hoja-de-campo-coordenadas.md. No procede de una búsqueda. Pasa las pruebas geométricas, pero requiere confirmación manual directa antes de promover.",
+        "precision": "sitio",
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.2361,
+          31.7686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "valle-del-hijo-de-hinon",
+        "nombre": "Valle del Hijo de Hinón",
+        "aliases": [
+          {
+            "forma": "Valle de Hinom",
+            "fuente": "RV60"
+          },
+          {
+            "forma": "Valle de Ben-hinom",
+            "fuente": "TLA"
+          },
+          {
+            "forma": "Valle de Ben Hinón",
+            "fuente": "NVI"
+          }
+        ],
+        "identificacion": "Wadi er-Rababi",
+        "confianza": "alta",
+        "fuente": "Consenso general",
+        "render": "zona",
+        "coordenada_estado": "verificada",
+        "fuente_coordenada": "Puerta de Jaffa y Puerta de Sion: coordenadas de sitio (Wikipedia/geohack). Trazado: BiblicalTraining, entrada 'Valley of Hinnom' ('begins W of the Jaffa gate, turns S ~1/3 mile, gradually curves E to join the Kidron').",
+        "referencias": [
+          "Jos 15:8",
+          "Jos 18:16"
+        ],
+        "tramo": 2,
+        "orden": 12,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "Valle al sur y suroeste de la ciudad antigua. Va como polígono, no como punto. | Traza el curso descrito en la fuente: nace al oeste de la Puerta de Jaffa, gira al sur bordeando el Monte Sion (Puerta de Sion), y curva al este hasta la confluencia con el Cedrón, cerca de la ladera sur de la Ciudad de David.",
+        "advertencia": null,
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.22755,
+            31.77661
+          ],
+          [
+            35.229361,
+            31.772861
+          ],
+          [
+            35.2355,
+            31.7733
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ladera-jebusea-jerusalen",
+        "nombre": "Ladera de los jebuseos (Jerusalén)",
+        "aliases": [
+          {
+            "forma": "Hombro del Jebuseo",
+            "fuente": "Biblia de Jerusalén"
+          },
+          {
+            "forma": "Ladera de la ciudad jebusea",
+            "fuente": "NVI"
+          }
+        ],
+        "identificacion": "Ciudad de David",
+        "confianza": "alta",
+        "fuente": "Texto bíblico (Jos 15:8 identifica explícitamente con Jerusalén)",
+        "render": "inferido",
+        "coordenada_estado": "provisional",
+        "fuente_coordenada": "Lectura cartográfica asistida (Gemini Flash-Lite, 03-08-2026), sin confirmación directa. Validada por control geométrico (monotonía de longitud + contraste con descripciones de Perspicacia).",
+        "referencias": [
+          "Jos 15:8",
+          "Jos 18:16",
+          "Jos 15:63"
+        ],
+        "tramo": 2,
+        "orden": 13,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "La frontera pasaba por la ladera SUR. Jerusalén queda del lado de Benjamín. Jos 15:63 aclara que Judá no logró expulsar a los jebuseos. | Parque arqueológico Ciudad de David. Punto a media ladera; el texto habla de la ladera SUR, así que admite refinamiento hacia el extremo meridional.",
+        "advertencia": null,
+        "precision": "sitio",
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.2355,
+          31.7733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cima-montana-oeste-hinon",
+        "nombre": "Cima de la montaña al oeste de Hinón",
+        "aliases": [],
+        "identificacion": null,
+        "confianza": "baja",
+        "fuente": null,
+        "render": "inferido",
+        "coordenada_estado": "pendiente",
+        "fuente_coordenada": null,
+        "referencias": [
+          "Jos 15:8",
+          "Jos 18:16"
+        ],
+        "tramo": 2,
+        "orden": 14,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "Rasgo topográfico sin nombre propio. El texto lo define por posición relativa: al oeste del valle de Hinón, en el extremo norte del valle de Refaím.",
+        "advertencia": null,
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "valle-de-refaim",
+        "nombre": "Valle de Refaím",
+        "aliases": [
+          {
+            "forma": "Llanura baja de Refaím",
+            "fuente": "TNM 2019, nota al pie Jos 15:8"
+          },
+          {
+            "forma": "Valle de Refaim",
+            "fuente": "RV60"
+          },
+          {
+            "forma": "Valle de Refayin",
+            "fuente": "NVI"
+          },
+          {
+            "forma": "Llanura de Baqaʽ",
+            "fuente": "Perspicacia"
+          }
+        ],
+        "identificacion": "Llanura de Baqaʽ",
+        "confianza": "alta",
+        "fuente": "Perspicacia, entrada 'Baal-perazim'",
+        "render": "zona",
+        "coordenada_estado": "provisional",
+        "fuente_coordenada": "Puerta de Sion: coordenada de sitio. Colonia Alemana / calle Emek Refaim: coordenada de localidad (Wikipedia).",
+        "referencias": [
+          "Jos 15:8",
+          "Jos 18:16"
+        ],
+        "tramo": 2,
+        "orden": 15,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "Al suroeste de Jerusalén. Tras aproximadamente kilómetro y medio de declive, la llanura se estrecha en un valle angosto, Wadi el Werd. | Traza SOLO el tramo documentado, desde el borde SO de la ciudad antigua hasta la actual calle Emek Refaim. La llanura sigue descendiendo hacia el suroeste y se angosta en Wadi el Werd, pero no hay coordenada citable para ese tramo; no se prolonga la línea por prudencia.",
+        "advertencia": null,
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.229361,
+            31.772861
+          ],
+          [
+            35.221053,
+            31.763167
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "aguas-de-neftoah",
+        "nombre": "Manantial de las aguas de Neftóah",
+        "aliases": [
+          {
+            "forma": "Neftóah",
+            "fuente": "Perspicacia"
+          },
+          {
+            "forma": "Neftoa",
+            "fuente": "RV60"
+          },
+          {
+            "forma": "Neftóaj",
+            "fuente": "NVI"
+          },
+          {
+            "forma": "Lifta",
+            "fuente": "Perspicacia (nombre moderno)"
+          }
+        ],
+        "identificacion": "Lifta",
+        "confianza": "alta",
+        "fuente": "Perspicacia, entrada 'Baal-perazim'",
+        "render": "punto",
+        "coordenada_estado": "verificada",
+        "fuente_coordenada": "Ficha geográfica de Lifta",
+        "referencias": [
+          "Jos 15:9",
+          "Jos 18:15"
+        ],
+        "tramo": 2,
+        "orden": 16,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "Al noroeste de Jerusalén.",
+        "advertencia": "Jos 18:15 dice que desde Quiryat-Jearim la frontera iba 'hacia el oeste' hasta aquí, pero Neftóah queda al ESTE de Quiryat-Jearim. Revisar notas al pie antes de trazar.",
+        "precision": "sitio",
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.19639,
+          31.79528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ciudades-monte-efron",
+        "nombre": "Ciudades del monte Efrón",
+        "aliases": [
+          {
+            "forma": "Monte de Efrón",
+            "fuente": "RV60"
+          }
+        ],
+        "identificacion": null,
+        "confianza": "baja",
+        "fuente": null,
+        "render": "inferido",
+        "coordenada_estado": "pendiente",
+        "fuente_coordenada": null,
+        "referencias": [
+          "Jos 15:9"
+        ],
+        "tramo": 2,
+        "orden": 17,
+        "pertenece_a": [
+          "juda"
+        ],
+        "nota": "El texto habla de varias ciudades, no de una. Podría requerir tratamiento como zona si aparece propuesta.",
+        "advertencia": null,
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "quiryat-jearim",
+        "nombre": "Quiryat-Jearim",
+        "aliases": [
+          {
+            "forma": "Quiriat-jearim",
+            "fuente": "Perspicacia"
+          },
+          {
+            "forma": "Quiriat Yearín",
+            "fuente": "NVI"
+          },
+          {
+            "forma": "Quiryat-Baal",
+            "fuente": "TNM 2019, Jos 18:14"
+          },
+          {
+            "forma": "Baalá",
+            "fuente": "TNM 2019, Jos 15:9"
+          },
+          {
+            "forma": "Deir el-ʽAzar",
+            "fuente": "Perspicacia (nombre moderno)"
+          },
+          {
+            "forma": "Tel Qiryat Yeʽarim",
+            "fuente": "Perspicacia"
+          }
+        ],
+        "identificacion": "Deir el-ʽAzar (Tel Qiryat Yeʽarim)",
+        "confianza": "alta",
+        "fuente": "Perspicacia, entrada 'Quiriat-jearim'",
+        "render": "inferido",
+        "coordenada_estado": "provisional",
+        "fuente_coordenada": "Lectura cartográfica asistida (Gemini Flash-Lite, 03-08-2026), sin confirmación directa. Validada por control geométrico (monotonía de longitud + contraste con descripciones de Perspicacia).",
+        "referencias": [
+          "Jos 15:9",
+          "Jos 15:60",
+          "Jos 18:14",
+          "Jos 18:15",
+          "Jue 18:12",
+          "1Sa 7:1"
+        ],
+        "tramo": 2,
+        "orden": 18,
+        "pertenece_a": [
+          "juda",
+          "benjamin"
+        ],
+        "nota": "A unos 13 km al oeste-noroeste de Jerusalén. Coincide con Eusebio, que la sitúa a 9 o 10 millas romanas. El nombre significa 'Ciudad de Bosques', lo que encaja con una zona antiguamente arbolada. | Excavado desde 2017 por Finkelstein (Univ. Tel Aviv) y Römer/Nicolle (Collège de France). Coordenada a nivel de localidad, no del tel. Refinar al centro de Deir el-ʽAzar cuando haya dato. Nota: Conder (PEF, s. XIX) propuso Kh. ʽErma, unos 3,5 km al sur de Kasla, identificación hoy minoritaria. | Monasterio de Nuestra Señora del Arca de la Alianza, sobre la colina del tel Deir el-ʽAzar. Sube de 'localidad' a 'sitio'. A 11,1 km de Jerusalén; Perspicacia indica ~13 km ONO.",
+        "advertencia": "PUNTO DE CIERRE DE BENJAMÍN. Jos 18:14 termina aquí la frontera de Benjamín. El tramo 3 es solo límite de Judá.",
+        "precision": "sitio",
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.1051,
+          31.8074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "monte-seir",
+        "nombre": "Monte Seír",
+        "aliases": [
+          {
+            "forma": "Monte de Seir",
+            "fuente": "RV60"
+          }
+        ],
+        "identificacion": null,
+        "confianza": "baja",
+        "fuente": "Restricción posicional (no identificación de sitio): Yeshivat Har Etzion, estudio sobre Quiriat-jearim",
+        "render": "inferido",
+        "coordenada_estado": "pendiente",
+        "fuente_coordenada": null,
+        "referencias": [
+          "Jos 15:10"
+        ],
+        "tramo": 3,
+        "orden": 19,
+        "pertenece_a": [
+          "juda"
+        ],
+        "nota": "Propuesta de geografía bíblica israelí (Yeshivat Har Etzion): el monte Jearim sería la cordillera que corre al oeste desde la cumbre del Castel, pasando por Tzova y Givʽat Yeʽarim en dirección a Ksalon. El monte Seír quedaría dentro de esa cordillera, al OESTE de Quiryat-Jearim y al ESTE de Kesalón. Es una propuesta, no consenso: la confianza se mantiene baja, pero ahora hay restricción posicional para la interpolación.",
+        "advertencia": "NO confundir con el monte Seír de Edom, muy al sureste. Homónimos.",
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "monte-jearim-kesalon",
+        "nombre": "Monte Jearim / Kesalón",
+        "aliases": [
+          {
+            "forma": "Quesalón",
+            "fuente": "RV60, NBLA, LBLA, NVI"
+          },
+          {
+            "forma": "Monte de Yearín",
+            "fuente": "NVI"
+          },
+          {
+            "forma": "Kasla",
+            "fuente": "Nombre moderno del sitio"
+          }
+        ],
+        "identificacion": "Kesla (Kasla)",
+        "confianza": "media",
+        "fuente": "Onomasticón de Eusebio + conservación del topónimo; pendiente confirmar en Perspicacia",
+        "render": "inferido",
+        "coordenada_estado": "provisional",
+        "fuente_coordenada": "Lectura cartográfica asistida (Gemini Flash-Lite, 03-08-2026), sin confirmación directa. Validada por control geométrico (monotonía de longitud + contraste con descripciones de Perspicacia).",
+        "referencias": [
+          "Jos 15:10"
+        ],
+        "tramo": 3,
+        "orden": 20,
+        "pertenece_a": [
+          "juda"
+        ],
+        "nota": "El texto identifica Kesalón con la ladera norte del monte Jearim. | ATENCIÓN: el sitio antiguo NO es el moshav. Kesalón se identifica con las ruinas en lo alto del tel de la aldea árabe de Kasla, destruida en 1948, situada AL NORTE del moshav moderno. Coordenada provisional; corregir hacia el norte cuando haya dato del tel. | Ruinas de la aldea antigua, 763 m al NORTE del moshav Ksalon. Sube de 'localidad' a 'sitio'.",
+        "advertencia": null,
+        "precision": "sitio",
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.05132,
+          31.7806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bet-semes",
+        "nombre": "Bet-Semes",
+        "aliases": [
+          {
+            "forma": "Bet-semes",
+            "fuente": "RV60"
+          },
+          {
+            "forma": "Bet Semes",
+            "fuente": "NVI"
+          }
+        ],
+        "identificacion": "Tell er-Rumeileh",
+        "confianza": "media",
+        "fuente": "Propuesta habitual; pendiente confirmar en Perspicacia",
+        "render": "inferido",
+        "coordenada_estado": "provisional",
+        "fuente_coordenada": "Lectura cartográfica asistida (Gemini Flash-Lite, 03-08-2026), sin confirmación directa. Validada por control geométrico (monotonía de longitud + contraste con descripciones de Perspicacia).",
+        "referencias": [
+          "Jos 15:10",
+          "Jos 21:16",
+          "1Sa 6:12"
+        ],
+        "tramo": 3,
+        "orden": 21,
+        "pertenece_a": [
+          "juda"
+        ],
+        "nota": "Montículo de unas 3 hectáreas sobre el valle de Sorek, unos 30 km al oeste de Jerusalén, en el punto de encuentro de la llanura costera, la Sefelá y la región montañosa. Está al OESTE de la ciudad moderna de Bet Semes, separado por la carretera 38, que corta el yacimiento entre su montículo occidental y el oriental. Identificado por Edward Robinson en 1856 apoyándose en la aldea árabe de ʽAin Shems, que conservaba el nombre antiguo. Coordenada aún no localizada en fuente citable: usar la descripción para lectura manual. | Tel Beth Shemesh, montículo occidental. Validación: 7,1 km de Timná, coherente con el valle de Sorek.",
+        "advertencia": " ⚠️ ORIGEN CONTAMINADO: este valor coincide carácter por carácter con el ejemplo de formato ficticio de la sección 'Cómo me lo devuelves' de hoja-de-campo-coordenadas.md. No procede de una búsqueda. Pasa las pruebas geométricas, pero requiere confirmación manual directa antes de promover.",
+        "precision": "sitio",
+        "tribu_posterior": {
+          "tribu": "dan",
+          "referencia": "Jos 19:41",
+          "certeza": "probable",
+          "nota": "Jos 19:41 nombra 'Ir-Semes' (Ciudad del Sol) en la herencia de Dan. Se identifica comúnmente con Bet-Semes (Casa del Sol), pero el texto usa otra forma del nombre: identificación probable, no explícita. Jos 21:16 la asigna además como ciudad levítica dentro de Judá."
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.9756,
+          31.7517
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "timna",
+        "nombre": "Timná",
+        "aliases": [
+          {
+            "forma": "Timnah",
+            "fuente": "TNM 2019, nota al pie Jos 15:10"
+          },
+          {
+            "forma": "Timna",
+            "fuente": "RV60"
+          }
+        ],
+        "identificacion": "Tell el-Batashi",
+        "confianza": "media",
+        "fuente": "Propuesta habitual; pendiente confirmar en Perspicacia",
+        "render": "punto",
+        "coordenada_estado": "verificada",
+        "fuente_coordenada": "Ficha de sitio arqueológico Tel Batash (Timnah), Sorek Valley",
+        "referencias": [
+          "Jos 15:10",
+          "Jos 19:43",
+          "Jue 14:1"
+        ],
+        "tramo": 3,
+        "orden": 22,
+        "pertenece_a": [
+          "juda"
+        ],
+        "nota": "Ligada al relato de Sansón.",
+        "advertencia": "Hay otra Timná en Jos 15:57, en la región montañosa. Homónimas.",
+        "precision": "sitio",
+        "tribu_posterior": {
+          "tribu": "dan",
+          "referencia": "Jos 19:43",
+          "certeza": "nombrado",
+          "nota": "Nombrada explícitamente en la herencia de Dan."
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.91111,
+          31.785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ecron",
+        "nombre": "Ecrón",
+        "aliases": [
+          {
+            "forma": "Ecrón",
+            "fuente": "RV60"
+          },
+          {
+            "forma": "Tel Miqne",
+            "fuente": "Nombre moderno del sitio"
+          }
+        ],
+        "identificacion": "Tel Miqne",
+        "confianza": "media",
+        "fuente": "Propuesta habitual; pendiente confirmar en Perspicacia",
+        "render": "punto",
+        "coordenada_estado": "verificada",
+        "fuente_coordenada": "Ficha de sitio Tel Miqne / Khirbet el-Muqanna; confirmado por la inscripción real de Ecrón (1996)",
+        "referencias": [
+          "Jos 15:11",
+          "Jos 15:45",
+          "1Sa 5:10"
+        ],
+        "tramo": 3,
+        "orden": 23,
+        "pertenece_a": [
+          "juda"
+        ],
+        "nota": "La frontera pasaba por su ladera NORTE. Ciudad filistea.",
+        "advertencia": null,
+        "precision": "sitio",
+        "tribu_posterior": {
+          "tribu": "dan",
+          "referencia": "Jos 19:43",
+          "certeza": "nombrado",
+          "nota": "Nombrada explícitamente en la herencia de Dan. Además Jos 15:45 la lista entre las ciudades de Judá, y Jos 13:3 la cuenta entre los señoríos filisteos no conquistados. Triple reclamo textual."
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.85194,
+          31.7775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "sikeron",
+        "nombre": "Sikerón",
+        "aliases": [
+          {
+            "forma": "Sicrón",
+            "fuente": "RV60, NBLA, LBLA, NVI"
+          }
+        ],
+        "identificacion": null,
+        "confianza": "baja",
+        "fuente": null,
+        "render": "inferido",
+        "coordenada_estado": "pendiente",
+        "fuente_coordenada": null,
+        "referencias": [
+          "Jos 15:11"
+        ],
+        "tramo": 3,
+        "orden": 24,
+        "pertenece_a": [
+          "juda"
+        ],
+        "nota": "Solo aparece aquí en toda la Biblia. Sin otro dato posicional.",
+        "advertencia": null,
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "monte-baala",
+        "nombre": "Monte Baalá",
+        "aliases": [
+          {
+            "forma": "Monte Baala",
+            "fuente": "RV60"
+          },
+          {
+            "forma": "Monte Balá",
+            "fuente": "NVI"
+          }
+        ],
+        "identificacion": null,
+        "confianza": "baja",
+        "fuente": null,
+        "render": "inferido",
+        "coordenada_estado": "pendiente",
+        "fuente_coordenada": null,
+        "referencias": [
+          "Jos 15:11"
+        ],
+        "tramo": 3,
+        "orden": 25,
+        "pertenece_a": [
+          "juda"
+        ],
+        "nota": null,
+        "advertencia": "NO confundir con Baalá = Quiryat-Jearim (orden 18), ni con la Baalá de Jos 15:29, en el Négueb. Tres entidades distintas con nombre parecido.",
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jabneel",
+        "nombre": "Jabneel",
+        "aliases": [
+          {
+            "forma": "Jabnel",
+            "fuente": "NVI"
+          },
+          {
+            "forma": "Yavne",
+            "fuente": "Nombre moderno"
+          }
+        ],
+        "identificacion": "Yavne",
+        "confianza": "media",
+        "fuente": "Conservación del topónimo; pendiente confirmar en Perspicacia",
+        "render": "inferido",
+        "coordenada_estado": "provisional",
+        "fuente_coordenada": "Lectura cartográfica asistida (Gemini Flash-Lite, 03-08-2026), sin confirmación directa. Validada por control geométrico (monotonía de longitud + contraste con descripciones de Perspicacia).",
+        "referencias": [
+          "Jos 15:11"
+        ],
+        "tramo": 3,
+        "orden": 26,
+        "pertenece_a": [
+          "juda"
+        ],
+        "nota": "Último punto terrestre antes del mar. | Coordenada a nivel de ciudad. Refinar a Tel Yavne cuando haya dato. | Tel Yavne, montículo con la estructura mameluca. Sube de 'localidad' a 'sitio'.",
+        "advertencia": "Hay otro Jabneel en Neftalí (Jos 19:33). Homónimos. TAMBIÉN distinto de Yavne-Yam (puerto costero, otro yacimiento) y de Gan Yavne (localidad moderna sin relación).",
+        "precision": "sitio",
+        "tribu_posterior": {
+          "tribu": "dan",
+          "referencia": null,
+          "certeza": "solo_cartografico",
+          "nota": "NO figura en la lista de Jos 19:41-46. El mapa B6 de la TNM lo sitúa dentro del área sombreada de Dan, probablemente por la cláusula de Jos 19:46 ('con la frontera enfrente de Jope'), que no nombra ciudades. Reasignación cartográfica, no textual."
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.7369,
+          31.8703
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mar-grande",
+        "nombre": "El mar / mar Grande",
+        "aliases": [
+          {
+            "forma": "Mar Grande",
+            "fuente": "TNM 2019, Jos 15:12"
+          },
+          {
+            "forma": "Mar Mediterráneo",
+            "fuente": "TNM 2019, nota al pie"
+          }
+        ],
+        "identificacion": "Mar Mediterráneo",
+        "confianza": "alta",
+        "fuente": "Texto bíblico",
+        "render": "zona",
+        "coordenada_estado": "provisional",
+        "fuente_coordenada": "Duna de Ashdod y Reserva de Nitzanim: coordenadas de sitio (Wikipedia).",
+        "referencias": [
+          "Jos 15:11",
+          "Jos 15:12"
+        ],
+        "tramo": 3,
+        "orden": 27,
+        "pertenece_a": [
+          "juda"
+        ],
+        "nota": "Cierre occidental de la frontera. Jos 15:12 lo declara límite oeste de todo Judá. | Segmento representativo de la costa mediterránea a la altura de Judá/Filistea. NO es el litoral completo del límite occidental de Judá (Jos 15:12), que se extiende mucho más al norte y al sur.",
+        "advertencia": null,
+        "precision": null,
+        "tribu_posterior": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.615259,
+            31.761852
+          ],
+          [
+            34.61472,
+            31.73694
+          ]
+        ]
+      }
+    }
+  ]
+}

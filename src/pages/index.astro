@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+
+const tribus = [
+  { nombre: 'Judá', href: '/judah', disponible: true },
+  { nombre: 'Benjamín', disponible: false },
+  { nombre: 'Efraín', disponible: false },
+  { nombre: 'Manasés', disponible: false },
+  { nombre: 'Simeón', disponible: false },
+  { nombre: 'Rubén', disponible: false },
+  { nombre: 'Gad', disponible: false },
+  { nombre: 'Zabulón', disponible: false },
+  { nombre: 'Isacar', disponible: false },
+  { nombre: 'Aser', disponible: false },
+  { nombre: 'Neftalí', disponible: false },
+  { nombre: 'Dan', disponible: false },
+];
+---
+
+<Base title="Atlas Bíblico">
+  <main class="home">
+    <header class="home-hdr">
+      <h1>Atlas Bíblico</h1>
+      <p class="sub">Los límites tribales de la tierra prometida, tramo a tramo, con fuente citable.</p>
+    </header>
+    <ul class="tribu-list">
+      {tribus.map((t) => (
+        t.disponible ? (
+          <li class="tribu on"><a href={t.href}>{t.nombre}</a></li>
+        ) : (
+          <li class="tribu"><span>{t.nombre}</span><em>próximamente</em></li>
+        )
+      ))}
+    </ul>
+  </main>
+</Base>
+
+<style is:global>
+  .home {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 24px;
+  }
+  .home-hdr h1 {
+    font-family: var(--f-disp);
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.05;
+  }
+  .home-hdr .sub {
+    margin-top: 10px;
+    color: var(--ink-2);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .tribu-list {
+    list-style: none;
+    margin-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .tribu {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+  }
+  .tribu span { color: var(--ash); }
+  .tribu em {
+    font-style: normal;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+  .tribu.on a {
+    color: var(--iron);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .tribu.on a:hover { color: var(--olive); }
+</style>
