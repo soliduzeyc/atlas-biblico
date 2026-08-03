@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import TribesMap from '../components/TribesMap.astro';
 
 const tribus = [
   { nombre: 'Judá', href: '/judah', disponible: true },
@@ -23,6 +24,7 @@ const tribus = [
       <h1>Atlas Bíblico</h1>
       <p class="sub">Los límites tribales de la tierra prometida, tramo a tramo, con fuente citable.</p>
     </header>
+    <TribesMap geojsonUrl="/data/tribus-1467-aec.geojson" />
     <ul class="tribu-list">
       {tribus.map((t) => (
         t.disponible ? (
@@ -37,9 +39,12 @@ const tribus = [
 
 <style is:global>
   .home {
-    max-width: 640px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 48px 24px;
+  }
+  .home-hdr {
+    max-width: 640px;
   }
   .home-hdr h1 {
     font-family: var(--f-disp);
@@ -53,10 +58,14 @@ const tribus = [
     font-size: 15px;
     line-height: 1.5;
   }
+  .tribes-app {
+    margin-top: 32px;
+  }
   .tribu-list {
     list-style: none;
     margin-top: 32px;
     border-top: 1px solid var(--line);
+    max-width: 640px;
   }
   .tribu {
     display: flex;

@@ -1,0 +1,723 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "titulo": "Territorios tribales tras la conquista (~1467 a.e.c.)",
+    "periodo": "Tras la conquista, reparto tribal — Josué 13-19",
+    "referencias": [
+      "Jos 13",
+      "Jos 14",
+      "Jos 15",
+      "Jos 16",
+      "Jos 17",
+      "Jos 18",
+      "Jos 19"
+    ],
+    "precision": "ilustrativa",
+    "advertencia_general": "Capa orientativa, no un levantamiento de coordenadas. Excepción autorizada expresamente por el usuario el 3 de agosto de 2026 para usar el mapa B6 de jw.org como referencia visual de la extensión aproximada de cada territorio. No aplica al resto del proyecto (ver docs/metodologia-fuentes.md). El único polígono con anclajes de fuente citable es el de Judá, en sus tramos norte y sur.",
+    "fuente_visual": "https://www.jw.org/finder?wtlocale=S&docid=1001070226",
+    "total_territorios": 13
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "juda",
+        "tribu": "Judá",
+        "nombre": "Judá",
+        "color": "#B0813C",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Excepción autorizada del 3 de agosto de 2026 (ver docs/metodologia-fuentes.md): los tramos norte y sur de este polígono reutilizan los anclajes reales ya investigados en judah-benjamin-limite.geojson (con fuente citable). El resto del contorno (costa oeste, orilla del mar Muerto) es trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org. Esta capa completa es orientativa, no un levantamiento de coordenadas.",
+        "nota": null,
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.539167,
+              31.838333
+            ],
+            [
+              35.1051,
+              31.8074
+            ],
+            [
+              34.615259,
+              31.761852
+            ],
+            [
+              34.57,
+              31.67
+            ],
+            [
+              34.47,
+              31.5
+            ],
+            [
+              33.80649,
+              31.14571
+            ],
+            [
+              34.42278,
+              30.64806
+            ],
+            [
+              35.13167,
+              30.90667
+            ],
+            [
+              35.45,
+              31.3
+            ],
+            [
+              35.459,
+              31.741
+            ],
+            [
+              35.539167,
+              31.838333
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "simeon",
+        "tribu": "Simeón",
+        "nombre": "Simeón",
+        "color": "#8A8C85",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org (\"La ocupación de la Tierra Prometida\", https://www.jw.org/finder?wtlocale=S&docid=1001070226), por excepción autorizada expresamente por el usuario el 3 de agosto de 2026 (ver docs/metodologia-fuentes.md). No es un levantamiento de coordenadas ni cumple el estándar de fuente citable del resto del proyecto: es una orientación visual de la extensión aproximada del territorio, no límites precisos.",
+        "nota": "Enclavado dentro del territorio de Judá (Jos 19:1), no una región contigua propia.",
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              34.65,
+              31.35
+            ],
+            [
+              34.9,
+              31.35
+            ],
+            [
+              34.95,
+              31.15
+            ],
+            [
+              34.7,
+              31.1
+            ],
+            [
+              34.55,
+              31.2
+            ],
+            [
+              34.65,
+              31.35
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "benjamin",
+        "tribu": "Benjamín",
+        "nombre": "Benjamín",
+        "color": "#5F7248",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org (\"La ocupación de la Tierra Prometida\", https://www.jw.org/finder?wtlocale=S&docid=1001070226), por excepción autorizada expresamente por el usuario el 3 de agosto de 2026 (ver docs/metodologia-fuentes.md). No es un levantamiento de coordenadas ni cumple el estándar de fuente citable del resto del proyecto: es una orientación visual de la extensión aproximada del territorio, no límites precisos.",
+        "nota": null,
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.1051,
+              31.8074
+            ],
+            [
+              35.22,
+              31.93
+            ],
+            [
+              35.46,
+              31.87
+            ],
+            [
+              35.539167,
+              31.838333
+            ],
+            [
+              35.50194,
+              31.82028
+            ],
+            [
+              35.2361,
+              31.7686
+            ],
+            [
+              35.2355,
+              31.7733
+            ],
+            [
+              35.19639,
+              31.79528
+            ],
+            [
+              35.1051,
+              31.8074
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dan-original",
+        "tribu": "Dan (territorio original)",
+        "nombre": "Dan (territorio original)",
+        "color": "#3E6572",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org (\"La ocupación de la Tierra Prometida\", https://www.jw.org/finder?wtlocale=S&docid=1001070226), por excepción autorizada expresamente por el usuario el 3 de agosto de 2026 (ver docs/metodologia-fuentes.md). No es un levantamiento de coordenadas ni cumple el estándar de fuente citable del resto del proyecto: es una orientación visual de la extensión aproximada del territorio, no límites precisos.",
+        "nota": "Territorio original antes de la migración hacia el norte narrada en Jueces 18.",
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              34.75,
+              32.05
+            ],
+            [
+              34.95,
+              32.05
+            ],
+            [
+              35.0,
+              31.85
+            ],
+            [
+              34.91111,
+              31.785
+            ],
+            [
+              34.85,
+              31.78
+            ],
+            [
+              34.75,
+              31.85
+            ],
+            [
+              34.75,
+              32.05
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "efrain",
+        "tribu": "Efraín",
+        "nombre": "Efraín",
+        "color": "#C99A3E",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org (\"La ocupación de la Tierra Prometida\", https://www.jw.org/finder?wtlocale=S&docid=1001070226), por excepción autorizada expresamente por el usuario el 3 de agosto de 2026 (ver docs/metodologia-fuentes.md). No es un levantamiento de coordenadas ni cumple el estándar de fuente citable del resto del proyecto: es una orientación visual de la extensión aproximada del territorio, no límites precisos.",
+        "nota": null,
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.22,
+              31.93
+            ],
+            [
+              34.95,
+              32.05
+            ],
+            [
+              35.05,
+              32.15
+            ],
+            [
+              35.3,
+              32.18
+            ],
+            [
+              35.3,
+              32.05
+            ],
+            [
+              35.18,
+              31.98
+            ],
+            [
+              35.22,
+              31.93
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "manases-oeste",
+        "tribu": "Manasés (occidental)",
+        "nombre": "Manasés (occidental)",
+        "color": "#7C8A5E",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org (\"La ocupación de la Tierra Prometida\", https://www.jw.org/finder?wtlocale=S&docid=1001070226), por excepción autorizada expresamente por el usuario el 3 de agosto de 2026 (ver docs/metodologia-fuentes.md). No es un levantamiento de coordenadas ni cumple el estándar de fuente citable del resto del proyecto: es una orientación visual de la extensión aproximada del territorio, no límites precisos.",
+        "nota": null,
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.3,
+              32.18
+            ],
+            [
+              35.28,
+              32.45
+            ],
+            [
+              35.3,
+              32.55
+            ],
+            [
+              35.55,
+              32.45
+            ],
+            [
+              35.45,
+              32.2
+            ],
+            [
+              34.95,
+              32.35
+            ],
+            [
+              35.3,
+              32.18
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "isacar",
+        "tribu": "Isacar",
+        "nombre": "Isacar",
+        "color": "#A9754A",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org (\"La ocupación de la Tierra Prometida\", https://www.jw.org/finder?wtlocale=S&docid=1001070226), por excepción autorizada expresamente por el usuario el 3 de agosto de 2026 (ver docs/metodologia-fuentes.md). No es un levantamiento de coordenadas ni cumple el estándar de fuente citable del resto del proyecto: es una orientación visual de la extensión aproximada del territorio, no límites precisos.",
+        "nota": null,
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.3,
+              32.55
+            ],
+            [
+              35.35,
+              32.65
+            ],
+            [
+              35.55,
+              32.65
+            ],
+            [
+              35.55,
+              32.45
+            ],
+            [
+              35.3,
+              32.55
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "zabulon",
+        "tribu": "Zabulón",
+        "nombre": "Zabulón",
+        "color": "#6E8B7A",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org (\"La ocupación de la Tierra Prometida\", https://www.jw.org/finder?wtlocale=S&docid=1001070226), por excepción autorizada expresamente por el usuario el 3 de agosto de 2026 (ver docs/metodologia-fuentes.md). No es un levantamiento de coordenadas ni cumple el estándar de fuente citable del resto del proyecto: es una orientación visual de la extensión aproximada del territorio, no límites precisos.",
+        "nota": null,
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.15,
+              32.65
+            ],
+            [
+              35.25,
+              32.78
+            ],
+            [
+              35.4,
+              32.72
+            ],
+            [
+              35.35,
+              32.65
+            ],
+            [
+              35.15,
+              32.63
+            ],
+            [
+              35.15,
+              32.65
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "aser",
+        "tribu": "Aser",
+        "nombre": "Aser",
+        "color": "#4F7C6B",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org (\"La ocupación de la Tierra Prometida\", https://www.jw.org/finder?wtlocale=S&docid=1001070226), por excepción autorizada expresamente por el usuario el 3 de agosto de 2026 (ver docs/metodologia-fuentes.md). No es un levantamiento de coordenadas ni cumple el estándar de fuente citable del resto del proyecto: es una orientación visual de la extensión aproximada del territorio, no límites precisos.",
+        "nota": null,
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.08,
+              32.7
+            ],
+            [
+              35.1,
+              32.95
+            ],
+            [
+              35.2,
+              33.05
+            ],
+            [
+              35.3,
+              32.95
+            ],
+            [
+              35.2,
+              32.72
+            ],
+            [
+              35.08,
+              32.7
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "neftali",
+        "tribu": "Neftalí",
+        "nombre": "Neftalí",
+        "color": "#3E6572",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org (\"La ocupación de la Tierra Prometida\", https://www.jw.org/finder?wtlocale=S&docid=1001070226), por excepción autorizada expresamente por el usuario el 3 de agosto de 2026 (ver docs/metodologia-fuentes.md). No es un levantamiento de coordenadas ni cumple el estándar de fuente citable del resto del proyecto: es una orientación visual de la extensión aproximada del territorio, no límites precisos.",
+        "nota": null,
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.35,
+              32.72
+            ],
+            [
+              35.45,
+              32.72
+            ],
+            [
+              35.53,
+              32.72
+            ],
+            [
+              35.45,
+              32.85
+            ],
+            [
+              35.55,
+              33.1
+            ],
+            [
+              35.65,
+              33.2
+            ],
+            [
+              35.6,
+              32.95
+            ],
+            [
+              35.45,
+              32.72
+            ],
+            [
+              35.35,
+              32.72
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "manases-este",
+        "tribu": "Manasés (oriental, Basán)",
+        "nombre": "Manasés (oriental, Basán)",
+        "color": "#8C6A4E",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org (\"La ocupación de la Tierra Prometida\", https://www.jw.org/finder?wtlocale=S&docid=1001070226), por excepción autorizada expresamente por el usuario el 3 de agosto de 2026 (ver docs/metodologia-fuentes.md). No es un levantamiento de coordenadas ni cumple el estándar de fuente citable del resto del proyecto: es una orientación visual de la extensión aproximada del territorio, no límites precisos.",
+        "nota": null,
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.65,
+              32.7
+            ],
+            [
+              35.7,
+              32.65
+            ],
+            [
+              35.95,
+              32.75
+            ],
+            [
+              36.05,
+              33.1
+            ],
+            [
+              35.85,
+              33.15
+            ],
+            [
+              35.75,
+              32.9
+            ],
+            [
+              35.65,
+              32.7
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gad",
+        "tribu": "Gad",
+        "nombre": "Gad",
+        "color": "#5C7A8A",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org (\"La ocupación de la Tierra Prometida\", https://www.jw.org/finder?wtlocale=S&docid=1001070226), por excepción autorizada expresamente por el usuario el 3 de agosto de 2026 (ver docs/metodologia-fuentes.md). No es un levantamiento de coordenadas ni cumple el estándar de fuente citable del resto del proyecto: es una orientación visual de la extensión aproximada del territorio, no límites precisos.",
+        "nota": null,
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.55,
+              32.65
+            ],
+            [
+              35.7,
+              32.65
+            ],
+            [
+              35.75,
+              32.35
+            ],
+            [
+              35.8,
+              32.0
+            ],
+            [
+              35.6,
+              31.95
+            ],
+            [
+              35.55,
+              32.3
+            ],
+            [
+              35.55,
+              32.65
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ruben",
+        "tribu": "Rubén",
+        "nombre": "Rubén",
+        "color": "#A6763F",
+        "confianza": "baja",
+        "precision": "ilustrativa",
+        "fuente": "Trazado ilustrativo aproximado, contrastado visualmente con el mapa B6 de jw.org (\"La ocupación de la Tierra Prometida\", https://www.jw.org/finder?wtlocale=S&docid=1001070226), por excepción autorizada expresamente por el usuario el 3 de agosto de 2026 (ver docs/metodologia-fuentes.md). No es un levantamiento de coordenadas ni cumple el estándar de fuente citable del resto del proyecto: es una orientación visual de la extensión aproximada del territorio, no límites precisos.",
+        "nota": null,
+        "advertencia": "Polígono orientativo, no un límite preciso. No usar como fuente de coordenadas para otras capas.",
+        "periodo": "Tras la conquista, reparto tribal (~1467 a.e.c.)",
+        "referencias": [
+          "Jos 13-19"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.6,
+              31.95
+            ],
+            [
+              35.8,
+              32.0
+            ],
+            [
+              35.75,
+              31.75
+            ],
+            [
+              35.75,
+              31.55
+            ],
+            [
+              35.55,
+              31.55
+            ],
+            [
+              35.45,
+              31.75
+            ],
+            [
+              35.6,
+              31.95
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
