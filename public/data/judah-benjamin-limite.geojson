@@ -49,7 +49,8 @@
       "norte": "Frontera norte · con Benjamín (Josué 15 / Josué 18)",
       "sur": "Frontera sur · Cadés-Barnea (Josué 15 / Números 34)"
     },
-    "nota_v5": "Se añade el segmento 'sur' (tramo 4): límite sur de Judá, Josué 15:1-4 cruzado con Números 34:3-5. 2 coordenadas verificadas (Cadés-Barnea = Tell el-Qudeirat; torrente de Egipto = desembocadura del Wadi al-Arish), 1 provisional (Subida de Acrabim, por continuidad toponímica con el paso moderno homónimo en la Ruta 227 de Israel), 6 pendientes sin coordenada citable (bahía sur del mar Salado, desierto de Zin, Hezrón, Addar, Carcá, Azmón). Números 34:4 funde Hezrón y Addar en un solo nombre, 'Hazar-Addar'; Josué 15:3 los lista como dos puntos separados: se documentan ambas lecturas. Ninguna coordenada de este segmento proviene de lectura de mapas ni de imágenes generadas por IA: todas citan una fuente textual/gazetteer concreta o quedan explícitamente pendientes."
+    "nota_v5": "Se añade el segmento 'sur' (tramo 4): límite sur de Judá, Josué 15:1-4 cruzado con Números 34:3-5. 2 coordenadas verificadas (Cadés-Barnea = Tell el-Qudeirat; torrente de Egipto = desembocadura del Wadi al-Arish), 1 provisional (Subida de Acrabim, por continuidad toponímica con el paso moderno homónimo en la Ruta 227 de Israel), 6 pendientes sin coordenada citable (bahía sur del mar Salado, desierto de Zin, Hezrón, Addar, Carcá, Azmón). Números 34:4 funde Hezrón y Addar en un solo nombre, 'Hazar-Addar'; Josué 15:3 los lista como dos puntos separados: se documentan ambas lecturas. Ninguna coordenada de este segmento proviene de lectura de mapas ni de imágenes generadas por IA: todas citan una fuente textual/gazetteer concreta o quedan explícitamente pendientes.",
+    "nota_v6": "Revisión del tramo sur contra Perspicacia, buscando con SUS grafías (Qadés-barnea, Qarqá, Aqrabim) en vez de las de la TNM 2019. La primera investigación usó solo fuentes seculares y pasó por alto estas entradas. Resultados: (a) Azmón deja de estar 'en disputa' — Perspicacia lo sitúa en ʽAin el-Qeseimeh, sube a confianza media; (b) Qarqá y Addar ganan propuestas citables aunque siguen sin coordenada; (c) queda documentada una divergencia de fondo en Qadés-barnea, donde Perspicacia prefiere ʽAin Qedeis frente al consenso moderno de Tell el-Qudeirat, con la consecuencia de que la coordenada cargada correspondería a Addar bajo el marco de Perspicacia. Esa decisión queda abierta."
   },
   "features": [
     {
@@ -1341,6 +1342,10 @@
           {
             "forma": "la subida de Acrabim",
             "fuente": "RV60, Jos 15:3"
+          },
+          {
+            "forma": "Aqrabim",
+            "fuente": "Perspicacia (vol. 1), 'subida de Aqrabim'"
           }
         ],
         "identificacion": "Naqb es-Safa / Maʽale Aqrabim",
@@ -1416,12 +1421,20 @@
         "nombre": "Cadés-Barnea",
         "aliases": [
           {
+            "forma": "Qadés-barnea",
+            "fuente": "Perspicacia (vol. 2)"
+          },
+          {
             "forma": "Cades-barnea",
             "fuente": "RV60, Jos 15:3"
           },
           {
             "forma": "Kadesh-Barnea",
             "fuente": "transliteración inglesa habitual"
+          },
+          {
+            "forma": "Qadés",
+            "fuente": "Perspicacia (vol. 2), forma corta"
           }
         ],
         "identificacion": "Tell el-Qudeirat, junto al manantial ʽEin el-Qudeirat",
@@ -1443,7 +1456,7 @@
           "juda"
         ],
         "nota": "El manantial de ʽEin el-Qudeirat es el más caudaloso del Sinaí y sostiene el oasis más importante de la zona; junto al tell se excavó una fortaleza israelita (Cohen y Bernick-Greenberg). Identificación aceptada por consenso arqueológico moderno, distinta del candidato más antiguo ʽAin Qedeis (~8 km al SSE), hoy asociado más bien con Hazar-Addar.",
-        "advertencia": null,
+        "advertencia": "⚠️ DIVERGENCIA CON PERSPICACIA. Esta coordenada sigue el consenso arqueológico moderno (Tell el-Qudeirat, junto a ʽAin el-Qudeirat). Perspicacia, entrada 'Qadés', reconoce que ʽAin el-Qudeirat es el mayor de los tres manantiales y que \"hay quien opta por identificarlo con Qadés-barnea\", pero se decanta por ʽAin Qedeis (~9 km al SE), razonando que, por ser el manantial más oriental, encaja mejor con la descripción de este a oeste del límite meridional de Canaán. Consecuencia: bajo el marco de Perspicacia, ESTA coordenada correspondería a Addar/Hazar-Addar, no a Qadés-barnea. Decisión de proyecto pendiente. (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
         "precision": "sitio",
         "tribu_posterior": null
       },
@@ -1476,7 +1489,7 @@
         "pertenece_a": [
           "juda"
         ],
-        "nota": "Josué 15:3 lo lista como punto propio entre Cadés-Barnea y Adar. Números 34:4 no lo nombra por separado: lo funde con Adar en \"Hazar-Addar\" (\"recinto/aldea de Addar\"). La bibliografía secular propone varias identificaciones modernas distintas, sin consenso mayoritario.",
+        "nota": "Josué 15:3 lo lista como punto propio entre Cadés-Barnea y Addar. Números 34:4 no lo nombra por separado: lo funde con Addar en \"Hazar-Addar\" (\"recinto/aldea de Addar\"). Perspicacia sigue esa lectura combinada en su entrada 'Addar'. La bibliografía secular propone varias identificaciones modernas distintas, sin consenso mayoritario. (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
         "advertencia": "No confundir con el Hezrón hijo de Fares, antepasado de Judá (Gn 46:12), ni con la ciudad de Hezrón/Hazor del Négueb listada aparte en Jos 15:25. Homónimos.",
         "precision": null,
         "tribu_posterior": null
@@ -1498,9 +1511,9 @@
             "fuente": "TNM 2019, Nm 34:4"
           }
         ],
-        "identificacion": null,
+        "identificacion": "Sin consenso; Perspicacia recoge la propuesta de ʽAin el-Qudeirat",
         "confianza": "baja",
-        "fuente": null,
+        "fuente": "Perspicacia, entrada 'Addar' (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
         "render": "inferido",
         "coordenada_estado": "pendiente",
         "fuente_coordenada": null,
@@ -1513,8 +1526,8 @@
         "pertenece_a": [
           "juda"
         ],
-        "nota": "Números 34:4 combina este punto con Hezrón bajo el nombre \"Hazar-Addar\". Josué 15:3 los trata como dos puntos separados de la ruta. Sin identificación moderna con respaldo firme.",
-        "advertencia": null,
+        "nota": "Números 34:4 combina este punto con Hezrón bajo el nombre \"Hazar-Addar\"; Josué 15:3 los trata como dos puntos separados de la ruta. Perspicacia, entrada 'Addar', recoge que la obra Biblical Archaeology (G. E. Wright) propone como ubicación posible ʽAin el-Qudeirat, donde un manantial perenne riega un valle pequeño pero fértil, y da 9 km de distancia entre Qadés-barnea (ʽAin Qedeis) y Hazar-Addar (ʽAin el-Qudeirat). (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
+        "advertencia": "Esa propuesta choca con la coordenada cargada para 'cades-barnea', que sitúa Cadés-Barnea en Tell el-Qudeirat siguiendo el consenso moderno: bajo el marco de Perspicacia ese punto sería este registro, no aquél. Ver la advertencia de 'cades-barnea'.",
         "precision": null,
         "tribu_posterior": null
       },
@@ -1527,13 +1540,17 @@
         "nombre": "Carcá",
         "aliases": [
           {
+            "forma": "Qarqá",
+            "fuente": "Perspicacia (vol. 2)"
+          },
+          {
             "forma": "Carca",
             "fuente": "RV60, Jos 15:3"
           }
         ],
-        "identificacion": null,
+        "identificacion": "Sin consenso; Perspicacia recoge una propuesta tentativa (estanque en la confluencia de Wadi el-ʽAin con Wadi Umm Hashim)",
         "confianza": "baja",
-        "fuente": null,
+        "fuente": "Perspicacia, entrada 'Qarqá' (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
         "render": "inferido",
         "coordenada_estado": "pendiente",
         "fuente_coordenada": null,
@@ -1546,8 +1563,8 @@
         "pertenece_a": [
           "juda"
         ],
-        "nota": "Mencionado una sola vez en toda la Biblia, solo en esta lista; no aparece en Números 34. Algunas fuentes seculares proponen el mismo manantial (el-Qoseimeh) tanto para Carcá como para Azmón, lo que es una contradicción directa entre ellas y descarta usar cualquiera de las dos identificaciones sin más respaldo.",
-        "advertencia": "Ver nota de Azmón: candidatos solapados entre ambos topónimos en fuentes seculares.",
+        "nota": "Mencionado una sola vez en toda la Biblia, solo en esta lista; no aparece en Números 34. Perspicacia, entrada 'Qarqá': \"Su ubicación exacta se desconoce en la actualidad\", pero recoge que algunos eruditos lo identifican tentativamente con un estanque de muy buena construcción hallado en la confluencia de Wadi el-ʽAin con Wadi Umm Hashim, a unos 4 km al ESE de Azmón (ʽAin el-Qeseimeh). Se mantiene sin coordenada: la propia fuente la declara desconocida y no da cifras. (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
+        "advertencia": null,
         "precision": null,
         "tribu_posterior": null
       },
@@ -1562,11 +1579,15 @@
           {
             "forma": "Asmón",
             "fuente": "RV60, Jos 15:4"
+          },
+          {
+            "forma": "ʽAin el-Qeseimeh",
+            "fuente": "Perspicacia (vol. 2), nombre moderno"
           }
         ],
-        "identificacion": "Disputada entre varios manantiales (candidatos: ʽAin el-Qoseima, ʽAin Muweileh)",
-        "confianza": "baja",
-        "fuente": "Sin consenso mayoritario en fuentes seculares consultadas",
+        "identificacion": "ʽAin el-Qeseimeh",
+        "confianza": "media",
+        "fuente": "Perspicacia, entrada 'Qarqá', que sitúa Azmón en ʽAin el-Qeseimeh (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
         "render": "inferido",
         "coordenada_estado": "pendiente",
         "fuente_coordenada": null,
@@ -1581,8 +1602,8 @@
         "pertenece_a": [
           "juda"
         ],
-        "nota": "Marca el tramo occidental del límite sur, justo antes de salir al torrente de Egipto. Aparece en el mapa bizantino de Madaba (s. VI) como \"Asemona\". Al menos dos manantiales candidatos en la bibliografía secular; ninguno con coordenada confirmada en fuente citable consultada.",
-        "advertencia": "Ver nota de Carcá: hay solapamiento de candidatos entre ambos topónimos en fuentes seculares, lo que resta fiabilidad a cualquier identificación puntual.",
+        "nota": "Marca el tramo occidental del límite sur, justo antes de salir al torrente de Egipto. Perspicacia identifica Azmón con ʽAin el-Qeseimeh, usándolo además como punto de referencia para situar Qarqá (~4 km al ONO de ese estanque). Esto resuelve a favor de uno de los dos candidatos que la bibliografía secular dejaba en disputa (el otro era ʽAin Muweileh). Sigue sin coordenada citable para el manantial. (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
+        "advertencia": null,
         "precision": null,
         "tribu_posterior": null
       },

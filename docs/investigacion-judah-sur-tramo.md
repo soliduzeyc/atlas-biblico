@@ -73,6 +73,40 @@ Identificación mayoritaria desde Ishtori Haparchi (s. XIV) hasta la erudición 
 
 ---
 
+## 5 bis. Revisión contra Perspicacia (3 de agosto de 2026) — y una divergencia de fondo
+
+La primera pasada de esta investigación usó **solo fuentes seculares**. Fue un error de método: no busqué en Perspicacia porque busqué con las grafías de la TNM 2019, y Perspicacia usa las suyas, con **Q** donde la revisión moderna pone **C**:
+
+| TNM 2019 | Perspicacia |
+|---|---|
+| Cadés-Barnea | **Qadés-barnea** (entrada «Qadés») |
+| Carcá | **Qarqá** |
+| Subida de Acrabim | subida de **Aqrabim** |
+
+Buscando con esas formas aparecen entradas propias para lugares que yo había dado por "sin propuesta de identificación". Lo que cambia:
+
+- **Azmón deja de estar en disputa.** Perspicacia lo sitúa en **ʽAin el-Qeseimeh**, y lo usa como punto de referencia para localizar Qarqá. Sube de confianza `baja` a `media`. Resuelve a favor de uno de los dos candidatos seculares (el otro era ʽAin Muweileh).
+- **Qarqá gana una propuesta citable.** La entrada declara que "su ubicación exacta se desconoce", pero recoge que algunos eruditos la identifican tentativamente con un estanque bien construido en la confluencia de Wadi el-ʽAin con Wadi Umm Hashim, a unos 4 km al ESE de Azmón. Sigue sin coordenada: la propia fuente no da cifras.
+- **Addar gana una propuesta citable.** Perspicacia recoge que *Biblical Archaeology* (G. E. Wright) propone **ʽAin el-Qudeirat**.
+
+### La divergencia: ¿dónde está Qadés-barnea?
+
+Este es el hallazgo serio. La coordenada que cargué para Cadés-Barnea (**Tell el-Qudeirat**, `30.64806, 34.42278`) sigue el consenso arqueológico moderno y está marcada `verificada` + confianza `alta` — el nivel más fuerte que permite el esquema.
+
+**Perspicacia no lo sitúa ahí.** Su entrada «Qadés» reconoce que ʽAin el-Qudeirat es el mayor de los tres manantiales y que "hay quien opta por identificarlo con Qadés-Barnea", pero se decanta por **ʽAin Qedeis**, unos 9 km al sureste, razonando que por ser el manantial más oriental encaja mejor con la descripción de este a oeste del límite meridional de Canaán.
+
+La consecuencia es incómoda y vale la pena verla de frente:
+
+> Bajo el marco de Perspicacia, la coordenada que este atlas etiqueta como **Cadés-Barnea** correspondería en realidad a **Addar / Hazar-Addar**.
+
+Es el mismo punto del mapa con dos nombres, según a qué autoridad se siga. La entrada «Addar» lo dice explícitamente al dar la distancia: 9 km entre Qadés-barnea (ʽAin Qedeis) y Hazar-Addar (ʽAin el-Qudeirat).
+
+**Decisión pendiente del proyecto**, no tomada aquí: si el atlas declara la TNM 2019 + Perspicacia como su marco de referencia, lo coherente sería mover Cadés-Barnea a ʽAin Qedeis y dejar Tell el-Qudeirat como Addar. Mientras tanto la coordenada se mantiene donde estaba, con la divergencia documentada en el campo `advertencia` del registro, visible en el popup.
+
+> **Nota de procedencia:** estas entradas se consultaron vía búsqueda en wol.jw.org; `wol.jw.org` devuelve 403 a la descarga directa, así que **no se ha cotejado el texto impreso de Perspicacia vol. 2**. Todos los campos afectados lo declaran. Ninguna coordenada nueva se cargó a partir de esta consulta.
+
+---
+
 ## 6. Por qué Hezrón, Addar, Carcá y Azmón quedan sin coordenada
 
 Los cuatro comparten el mismo problema: **múltiples candidatos modernos que se pisan entre sí**, sin que ninguna fuente secular consultada dé un consenso mayoritario.

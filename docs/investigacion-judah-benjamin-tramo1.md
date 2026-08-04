@@ -175,6 +175,16 @@ Pero Neftóah (Lifta) está al **este** de Quiryat-Jearim (Deir el-ʽAzar). Al t
 | Sikerón | Sicrón |
 | Neftóah | Neftóah *(igual)* |
 
+**Ampliación (03-08-2026), tramo sur.** La regla es más amplia de lo que sugería esta tabla: donde la TNM 2019 escribe **C**, Perspicacia suele escribir **Q**. Pasar esto por alto hizo que la primera investigación del tramo sur no encontrara entradas que sí existen:
+
+| TNM 2019 | Perspicacia |
+|---|---|
+| Cadés-Barnea | Qadés-barnea *(entrada «Qadés»)* |
+| Carcá | Qarqá |
+| Subida de Acrabim | subida de Aqrabim |
+
+Buscar con la grafía equivocada no devuelve "no hay nada": devuelve silencio, que es peor, porque se confunde con "la obra no trata este lugar". Ver `investigacion-judah-sur-tramo.md`, §5 bis.
+
 ---
 
 ## 10. Preparación para la fase de coordenadas
