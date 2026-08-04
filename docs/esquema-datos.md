@@ -159,6 +159,35 @@ En la v2.3 la hoja de campo incluía un ejemplo de formato con coordenadas ficti
 
 **Regla para futuras hojas de campo:** los ejemplos de formato usan valores imposibles y evidentes (`0.00000, 0.00000`, o `[LON, LAT]`), nunca números plausibles.
 
+### 4.7 El campo `lectura_alternativa` (añadido en v6.0)
+
+A veces el problema no es que falte una fuente, sino que hay **dos fuentes citadas que no coinciden**. Caso real: Cadés-Barnea. El consenso arqueológico moderno lo sitúa en Tell el-Qudeirat; Perspicacia se decanta por ʽAin Qedeis, 9 km al sureste.
+
+Elegir una y callar la otra sería el mismo pecado que dibujar un punto sin fuente: el atlas afirmaría algo que la evidencia no zanja. Así que se dibujan **las dos, unidas por una línea**. La longitud de esa línea *es* el desacuerdo.
+
+```json
+"lectura_alternativa": {
+  "etiqueta": "Lectura de Perspicacia",
+  "identificacion": "ʽAin Qedeis",
+  "fuente": "Perspicacia, entrada 'Qadés' (…)",
+  "coordenada_estado": "derivada",
+  "geometry": { "type": "Point", "coordinates": [34.45874, 30.57337] },
+  "derivacion": {
+    "distancia_km": 9,
+    "rumbo_grados": 157.5,
+    "radio_halo_m": 2500,
+    "fuente_distancia": "Perspicacia, entrada 'Addar': 9 km entre …"
+  },
+  "nota": "ESTA POSICIÓN NO ES UNA COORDENADA CITADA. …"
+}
+```
+
+**El estado `derivada`.** Es un cuarto estado, y el más débil de todos. Significa: *no existe coordenada publicada para este sitio, pero sí una restricción citable* — aquí, la distancia que da la propia Perspicacia. La posición se calcula desde el ancla y se dibuja hueca, con halo, y con un popup que empieza diciendo que no es un dato.
+
+No confundir con `pendiente`: aquel interpola entre dos vecinos de la secuencia; este se calcula a partir de una cifra citada en la fuente.
+
+**Consecuencia lógica que hay que dejar escrita.** Si la lectura alternativa fuese la correcta, la coordenada verificada del registro pertenecería a *otro* topónimo — en este caso, a Addar/Hazar-Addar. Eso va en `nota`, porque un desacuerdo sobre un nombre casi siempre arrastra al vecino.
+
 ### 4.3 Regla de integridad
 
 ```

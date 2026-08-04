@@ -50,7 +50,8 @@
       "sur": "Frontera sur · Cadés-Barnea (Josué 15 / Números 34)"
     },
     "nota_v5": "Se añade el segmento 'sur' (tramo 4): límite sur de Judá, Josué 15:1-4 cruzado con Números 34:3-5. 2 coordenadas verificadas (Cadés-Barnea = Tell el-Qudeirat; torrente de Egipto = desembocadura del Wadi al-Arish), 1 provisional (Subida de Acrabim, por continuidad toponímica con el paso moderno homónimo en la Ruta 227 de Israel), 6 pendientes sin coordenada citable (bahía sur del mar Salado, desierto de Zin, Hezrón, Addar, Carcá, Azmón). Números 34:4 funde Hezrón y Addar en un solo nombre, 'Hazar-Addar'; Josué 15:3 los lista como dos puntos separados: se documentan ambas lecturas. Ninguna coordenada de este segmento proviene de lectura de mapas ni de imágenes generadas por IA: todas citan una fuente textual/gazetteer concreta o quedan explícitamente pendientes.",
-    "nota_v6": "Revisión del tramo sur contra Perspicacia, buscando con SUS grafías (Qadés-barnea, Qarqá, Aqrabim) en vez de las de la TNM 2019. La primera investigación usó solo fuentes seculares y pasó por alto estas entradas. Resultados: (a) Azmón deja de estar 'en disputa' — Perspicacia lo sitúa en ʽAin el-Qeseimeh, sube a confianza media; (b) Qarqá y Addar ganan propuestas citables aunque siguen sin coordenada; (c) queda documentada una divergencia de fondo en Qadés-barnea, donde Perspicacia prefiere ʽAin Qedeis frente al consenso moderno de Tell el-Qudeirat, con la consecuencia de que la coordenada cargada correspondería a Addar bajo el marco de Perspicacia. Esa decisión queda abierta."
+    "nota_v6": "Revisión del tramo sur contra Perspicacia, buscando con SUS grafías (Qadés-barnea, Qarqá, Aqrabim) en vez de las de la TNM 2019. La primera investigación usó solo fuentes seculares y pasó por alto estas entradas. Resultados: (a) Azmón deja de estar 'en disputa' — Perspicacia lo sitúa en ʽAin el-Qeseimeh, sube a confianza media; (b) Qarqá y Addar ganan propuestas citables aunque siguen sin coordenada; (c) queda documentada una divergencia de fondo en Qadés-barnea, donde Perspicacia prefiere ʽAin Qedeis frente al consenso moderno de Tell el-Qudeirat, con la consecuencia de que la coordenada cargada correspondería a Addar bajo el marco de Perspicacia. Esa decisión queda abierta.",
+    "campo_lectura_alternativa": "Registra una identificación rival documentada para un mismo topónimo, con su propia posición y fuente. Existe para no obligar al atlas a elegir entre dos autoridades cuando ambas están citadas: se dibujan las dos y se unen con una línea. 'coordenada_estado: derivada' significa que la posición se calculó a partir de una restricción citable (distancia y rumbo), no de una coordenada publicada, y por eso nunca se dibuja como punto sólido y siempre lleva halo."
   },
   "features": [
     {
@@ -1458,7 +1459,30 @@
         "nota": "El manantial de ʽEin el-Qudeirat es el más caudaloso del Sinaí y sostiene el oasis más importante de la zona; junto al tell se excavó una fortaleza israelita (Cohen y Bernick-Greenberg). Identificación aceptada por consenso arqueológico moderno, distinta del candidato más antiguo ʽAin Qedeis (~8 km al SSE), hoy asociado más bien con Hazar-Addar.",
         "advertencia": "⚠️ DIVERGENCIA CON PERSPICACIA. Esta coordenada sigue el consenso arqueológico moderno (Tell el-Qudeirat, junto a ʽAin el-Qudeirat). Perspicacia, entrada 'Qadés', reconoce que ʽAin el-Qudeirat es el mayor de los tres manantiales y que \"hay quien opta por identificarlo con Qadés-barnea\", pero se decanta por ʽAin Qedeis (~9 km al SE), razonando que, por ser el manantial más oriental, encaja mejor con la descripción de este a oeste del límite meridional de Canaán. Consecuencia: bajo el marco de Perspicacia, ESTA coordenada correspondería a Addar/Hazar-Addar, no a Qadés-barnea. Decisión de proyecto pendiente. (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
         "precision": "sitio",
-        "tribu_posterior": null
+        "tribu_posterior": null,
+        "lectura_alternativa": {
+          "etiqueta": "Lectura de Perspicacia",
+          "identificacion": "ʽAin Qedeis",
+          "fuente": "Perspicacia, entrada 'Qadés' (consultado vía wol.jw.org; pendiente cotejar con el texto impreso vol. 2)",
+          "coordenada_estado": "derivada",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              34.45874,
+              30.57337
+            ]
+          },
+          "derivacion": {
+            "metodo": "distancia y rumbo desde la lectura del consenso",
+            "ancla": "cades-barnea (Tell el-Qudeirat, coordenada verificada)",
+            "distancia_km": 9.0,
+            "rumbo_grados": 157.5,
+            "radio_halo_m": 2500,
+            "fuente_distancia": "Perspicacia, entrada 'Addar': 9 km entre Qadés-barnea (ʽAin Qedeis) y Hazar-Addar (ʽAin el-Qudeirat)",
+            "fuente_rumbo": "ʽAin Qedeis es el manantial más oriental del grupo y queda al SSE de ʽAin el-Qudeirat (bibliografía secular consultada)"
+          },
+          "nota": "ESTA POSICIÓN NO ES UNA COORDENADA CITADA. No se localizó ninguna fuente que publique la coordenada de ʽAin Qedeis, así que el punto se calcula a partir de la distancia que da la propia Perspicacia (9 km) y del rumbo aproximado que describen las fuentes seculares. El halo marca el margen. Perspicacia prefiere este emplazamiento porque, por ser el manantial más oriental, encaja mejor con la descripción de este a oeste del límite meridional de Canaán. Si esta lectura es la correcta, la coordenada verificada de este registro correspondería a Addar/Hazar-Addar."
+        }
       },
       "geometry": {
         "type": "Point",

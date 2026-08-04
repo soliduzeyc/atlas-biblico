@@ -134,6 +134,7 @@ export async function initAtlasMap(root) {
   const layerZone = L.layerGroup().addTo(map);
   const layerHalo = L.layerGroup().addTo(map);
   const layerLine = L.layerGroup().addTo(map);
+  const layerAlt = L.layerGroup().addTo(map);
   const layerMark = L.layerGroup().addTo(map);
 
   function drawZones() {
@@ -165,6 +166,64 @@ export async function initAtlasMap(root) {
           segStyle(pts[i].properties, pts[i + 1].properties)).addTo(layerLine);
       }
     }
+  }
+
+  // Lecturas alternativas: cuando dos autoridades citadas sitúan el mismo
+  // topónimo en puntos distintos, se dibujan las dos y se unen con una línea,
+  // en vez de que el atlas elija por su cuenta.
+  function drawAlt() {
+    layerAlt.clearLayers();
+    F.forEach(f => {
+      const p = f.properties;
+      const alt = p.lectura_alternativa;
+      if (!alt || !alt.geometry) return;
+      const base = POS[p.id];
+      if (!base) return;
+
+      const aLat = alt.geometry.coordinates[1], aLng = alt.geometry.coordinates[0];
+      const radio = alt.derivacion?.radio_halo_m || 0;
+
+      if (radio > 0) {
+        L.circle([aLat, aLng], {
+          radius: radio, color: '#3E6572', weight: 1, opacity: .35,
+          fillColor: '#3E6572', fillOpacity: .06, dashArray: '2 4', className: 'halo'
+        }).addTo(layerAlt);
+      }
+
+      // La línea de discrepancia: une las dos lecturas del mismo lugar.
+      L.polyline([[base.lat, base.lng], [aLat, aLng]], {
+        color: '#3E6572', weight: 1.6, opacity: .7, dashArray: '5 4'
+      }).addTo(layerAlt)
+        .bindTooltip(`${p.nombre}: dos lecturas`, { sticky: true, className: 'zone-tip' });
+
+      const r = 9;
+      const icon = L.divIcon({
+        className: '', iconSize: [r * 2, r * 2], iconAnchor: [r, r],
+        html: `<span class="wrap" style="width:${r * 2}px;height:${r * 2}px">
+          <span class="mk alt-mk" style="width:${r * 2}px;height:${r * 2}px;
+            background:transparent;border:2px dashed #3E6572"></span></span>`
+      });
+      L.marker([aLat, aLng], { icon, riseOnHover: true })
+        .bindPopup(altPopupHTML(p, alt), { maxWidth: 290 })
+        .addTo(layerAlt);
+    });
+  }
+
+  function altPopupHTML(p, alt) {
+    let h = `<div class="pop"><h3>${p.nombre}</h3>`;
+    h += `<div class="ident">${alt.identificacion || ''}</div>`;
+    h += `<div class="tags"><span class="tag dan">${alt.etiqueta || 'Lectura alternativa'}</span>`
+      + `<span class="tag">Posición derivada</span></div>`;
+    if (alt.derivacion) {
+      const dv = alt.derivacion;
+      h += `<dl class="meta">`;
+      if (dv.distancia_km) h += `<dt>Distancia</dt><dd>${dv.distancia_km} km desde la otra lectura</dd>`;
+      if (dv.fuente_distancia) h += `<dt>Según</dt><dd>${dv.fuente_distancia}</dd>`;
+      h += `</dl>`;
+    }
+    if (alt.nota) h += `<div class="dan-note">${alt.nota}</div>`;
+    if (alt.fuente) h += `<div class="alias">Fuente: ${alt.fuente}</div>`;
+    return h + `</div>`;
   }
 
   const marks = {};
@@ -220,7 +279,9 @@ export async function initAtlasMap(root) {
       <span class="n">${String(p.orden).padStart(2, '0')}</span>
       <span class="sg c-${p.confianza}">${sg}</span>
       <span><span class="nm">${esc(p.nombre)}</span>
-      <span class="id">${esc(sub)}</span>${motivo ? `<span class="motivo">${esc(motivo)}</span>` : ''}</span>
+      <span class="id">${esc(sub)}</span>${motivo ? `<span class="motivo">${esc(motivo)}</span>` : ''}${
+        p.lectura_alternativa ? `<span class="alt-flag">Dos lecturas · ${esc(p.lectura_alternativa.etiqueta || '')}</span>` : ''
+      }</span>
     </div>`;
   }
 
@@ -268,6 +329,7 @@ export async function initAtlasMap(root) {
         <label><input type="checkbox" id="tLine" checked> Mostrar el trazado de la frontera</label>
         <label><input type="checkbox" id="tDan"> Marcar lo que después pasó a Dan</label>
         <label><input type="checkbox" id="tZone" checked> Mostrar valles y regiones</label>
+        <label><input type="checkbox" id="tAlt" checked> Mostrar lecturas alternativas</label>
       </div>
     </details>`;
     // La lista va en su propio contenedor: al buscar se reemplaza solo esta
@@ -294,6 +356,11 @@ export async function initAtlasMap(root) {
         <dt><span class="swatch" style="background:repeating-linear-gradient(90deg,#232A28 0 6px,transparent 6px 10px);height:2px"></span></dt><dd>Toca un punto provisional</dd>
         <dt><span class="swatch" style="background:repeating-linear-gradient(90deg,#8A8C85 0 2px,transparent 2px 6px);height:2px"></span></dt><dd>Cruza un tramo deducido</dd>
       </dl>
+      <h2>Cuando dos fuentes no coinciden</h2>
+      <dl>
+        <dt style="color:var(--sea)">◌</dt><dd>Segunda lectura del mismo lugar, según otra autoridad citada</dd>
+        <dt><span class="swatch" style="background:repeating-linear-gradient(90deg,#3E6572 0 5px,transparent 5px 9px);height:2px"></span></dt><dd>Une las dos lecturas: la distancia es el desacuerdo</dd>
+      </dl>
       <div id="danLeg" style="display:none">
       <h2>El anillo azul: territorio que pasó a Dan</h2>
       <dl>
@@ -310,6 +377,9 @@ export async function initAtlasMap(root) {
     });
     railEl.querySelector('#tZone').addEventListener('change', e => {
       e.target.checked ? layerZone.addTo(map) : map.removeLayer(layerZone)
+    });
+    railEl.querySelector('#tAlt').addEventListener('change', e => {
+      e.target.checked ? layerAlt.addTo(map) : map.removeLayer(layerAlt)
     });
     railEl.querySelector('#tDan').addEventListener('change', e => {
       showDan = e.target.checked;
@@ -432,7 +502,7 @@ export async function initAtlasMap(root) {
     });
   }
 
-  buildRail(); drawMarks(true); drawLine(); drawZones(); tally();
+  buildRail(); drawMarks(true); drawLine(); drawZones(); drawAlt(); tally();
   const pts = Object.values(POS);
   if (pts.length) {
     // El encuadre abarca de Jerusalén al Sinaí; en pantallas estrechas un
