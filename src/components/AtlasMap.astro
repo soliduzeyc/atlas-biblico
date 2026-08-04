@@ -15,6 +15,19 @@ const { geojsonUrl, title } = Astro.props;
     <h1>{title}</h1>
     <span class="sub" data-role="subtitle"></span>
     <div class="tally" data-role="tally"></div>
+    <div class="search">
+      <input
+        type="search"
+        class="search-input"
+        data-role="search"
+        placeholder="Buscar lugar, alias o versículo…"
+        aria-label="Buscar un lugar por nombre, alias, sitio moderno o versículo"
+        autocomplete="off"
+        autocorrect="off"
+        spellcheck="false"
+      />
+      <button type="button" class="search-clear" data-role="search-clear" aria-label="Limpiar búsqueda" hidden>×</button>
+    </div>
   </header>
   <div class="shell">
     <aside class="rail" data-role="rail"></aside>
@@ -36,6 +49,49 @@ const { geojsonUrl, title } = Astro.props;
   .atlas-app .hdr .sub { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
   .atlas-app .tally { margin-left: auto; display: flex; gap: 12px; font-family: var(--f-mono); font-size: 11px; color: var(--ink-2); }
   .atlas-app .tally b { color: var(--iron); font-weight: 500; }
+
+  /* El buscador vive en la cabecera para seguir accesible con el panel plegado. */
+  .atlas-app .search { position: relative; display: flex; align-items: center; }
+  .atlas-app .search-input {
+    width: 230px;
+    padding: 6px 26px 6px 10px;
+    font-family: var(--f-body);
+    font-size: 13px;
+    color: var(--iron);
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .atlas-app .search-input::placeholder { color: var(--ash); }
+  .atlas-app .search-input:focus { border-color: var(--olive); background: var(--paper); }
+  .atlas-app .search-input::-webkit-search-cancel-button { display: none; }
+  .atlas-app .search-clear {
+    position: absolute; right: 4px;
+    width: 20px; height: 20px; padding: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: none; border: none; cursor: pointer;
+    color: var(--ash); font-size: 17px; line-height: 1;
+  }
+  .atlas-app .search-clear:hover { color: var(--iron); }
+
+  /* Cabecera del modo resultados y explicación de por qué coincidió. */
+  .atlas-app .res-hdr {
+    padding: 11px 16px 4px;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: .13em;
+    text-transform: uppercase; color: var(--ink-2);
+  }
+  .atlas-app .row .motivo {
+    display: block; font-size: 11px; color: var(--olive);
+    margin-top: 2px; font-style: italic;
+  }
+  .atlas-app .row.sel { background: var(--paper-2); border-left-color: var(--olive); }
+  .atlas-app .no-res {
+    padding: 18px 16px; font-size: 13px; color: var(--ink-2); line-height: 1.5;
+  }
+  .atlas-app .no-res b { color: var(--iron); font-weight: 500; }
 
   .atlas-app .shell { flex: 1; display: flex; min-height: 0; }
   .atlas-app .atlas-map { flex: 1; min-height: 0; background: var(--paper-2); }
@@ -178,10 +234,17 @@ const { geojsonUrl, title } = Astro.props;
     .atlas-app .rail-toggle:active { background: var(--paper-2); }
     .atlas-app.rail-hidden .rail { display: none; }
 
-    .atlas-app .hdr { padding: 8px 14px; gap: 10px; }
+    .atlas-app .hdr { padding: 8px 14px; gap: 8px; }
     .atlas-app .hdr h1 { font-size: 20px; }
     .atlas-app .hdr .sub { display: none; }
     .atlas-app .tally { width: 100%; margin-left: 0; order: 3; gap: 9px; font-size: 10px; }
+    .atlas-app .search { width: 100%; order: 4; margin-top: 2px; }
+    .atlas-app .search-input {
+      width: 100%;
+      /* 16 px evita que iOS haga zoom automático al enfocar el campo. */
+      font-size: 16px;
+      padding: 7px 28px 7px 10px;
+    }
 
     /* Filas más compactas: en un 12 mini cada píxel vertical cuenta. */
     .atlas-app .segmento { padding: 12px 14px 2px; font-size: 14px; }

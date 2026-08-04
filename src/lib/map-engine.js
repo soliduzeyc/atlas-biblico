@@ -3,6 +3,7 @@
 // confianza, halos de incertidumbre, toggle de capa "tribu_posterior"), pero
 // los datos se cargan por fetch en vez de venir embebidos.
 import L from 'leaflet';
+import { buildIndex, search as runSearch } from './search.js';
 
 const CONF = { alta: '#5F7248', media: '#B0813C', baja: '#8A8C85' };
 const SIG = { verificada: '●', provisional: '◍', pendiente: '○', no_aplica: '▤' };
@@ -108,6 +109,8 @@ export async function initAtlasMap(root) {
   const subtitleEl = root.querySelector('[data-role="subtitle"]');
   const railToggleEl = root.querySelector('[data-role="rail-toggle"]');
   const railToggleLabelEl = root.querySelector('[data-role="rail-toggle-label"]');
+  const searchEl = root.querySelector('[data-role="search"]');
+  const searchClearEl = root.querySelector('[data-role="search-clear"]');
 
   // En pantallas estrechas los controles y la leyenda van plegados: si no,
   // se comen el panel entero y solo caben dos lugares de la lista.
@@ -199,6 +202,62 @@ export async function initAtlasMap(root) {
     });
   }
 
+  let listEl = null;
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  }
+
+  function rowHTML(f, motivo) {
+    const p = f.properties, q = POS[p.id];
+    const sg = p.render === 'zona' ? SIG.no_aplica : SIG[p.coordenada_estado];
+    const isZoneDrawn = p.render === 'zona' && f.geometry;
+    const dim = !q && !isZoneDrawn;
+    const sub = p.render === 'zona'
+      ? (isZoneDrawn ? 'Zona · trazada' : 'Zona · sin trazar todavía')
+      : (p.identificacion || 'sin identificación');
+    return `<div class="row${dim ? ' dim' : ''}" data-id="${p.id}">
+      <span class="n">${String(p.orden).padStart(2, '0')}</span>
+      <span class="sg c-${p.confianza}">${sg}</span>
+      <span><span class="nm">${esc(p.nombre)}</span>
+      <span class="id">${esc(sub)}</span>${motivo ? `<span class="motivo">${esc(motivo)}</span>` : ''}</span>
+    </div>`;
+  }
+
+  function attachRows() {
+    listEl.querySelectorAll('.row').forEach(el =>
+      el.addEventListener('click', () => select(el.dataset.id, true)));
+  }
+
+  function renderFullList() {
+    const segmentoLabels = DATA.metadata?.segmentos || {};
+    let h = '';
+    for (const [seg, group] of groupBySegmento(F)) {
+      if (segmentoLabels[seg]) h += `<div class="segmento">${esc(segmentoLabels[seg])}</div>`;
+      const tramos = [...new Set(group.map(f => f.properties.tramo))].sort((a, b) => a - b);
+      tramos.forEach(t => {
+        h += `<div class="tramo">Tramo ${t}</div>`;
+        group.filter(f => f.properties.tramo === t).forEach(f => { h += rowHTML(f, null); });
+      });
+    }
+    listEl.innerHTML = h;
+    attachRows();
+  }
+
+  function renderResults(results, query) {
+    if (!results.length) {
+      listEl.innerHTML = `<div class="no-res">Ningún lugar coincide con <b>${esc(query)}</b>.
+        <br>El buscador conoce los alias de cada traducción, el nombre del sitio moderno
+        y los versículos: prueba con otra grafía o con una cita como «Jos 15:7».</div>`;
+      return;
+    }
+    const n = results.length;
+    let h = `<div class="res-hdr">${n} ${n === 1 ? 'resultado' : 'resultados'}</div>`;
+    h += results.map(r => rowHTML(r.feature, r.motivo)).join('');
+    listEl.innerHTML = h;
+    attachRows();
+  }
+
   function buildRail() {
     const segmentoLabels = DATA.metadata?.segmentos || {};
     const openAttr = compact ? '' : ' open';
@@ -211,25 +270,9 @@ export async function initAtlasMap(root) {
         <label><input type="checkbox" id="tZone" checked> Mostrar valles y regiones</label>
       </div>
     </details>`;
-    for (const [seg, group] of groupBySegmento(F)) {
-      if (segmentoLabels[seg]) h += `<div class="segmento">${segmentoLabels[seg]}</div>`;
-      const tramos = [...new Set(group.map(f => f.properties.tramo))].sort((a, b) => a - b);
-      tramos.forEach(t => {
-        h += `<div class="tramo">Tramo ${t}</div>`;
-        group.filter(f => f.properties.tramo === t).forEach(f => {
-          const p = f.properties, q = POS[p.id];
-          const sg = p.render === 'zona' ? SIG.no_aplica : SIG[p.coordenada_estado];
-          const isZoneDrawn = p.render === 'zona' && f.geometry;
-          const dim = !q && !isZoneDrawn;
-          h += `<div class="row${dim ? ' dim' : ''}" data-id="${p.id}">
-            <span class="n">${String(p.orden).padStart(2, '0')}</span>
-            <span class="sg c-${p.confianza}">${sg}</span>
-            <span><span class="nm">${p.nombre}</span>
-            <span class="id">${p.render === 'zona' ? (isZoneDrawn ? 'Zona · trazada' : 'Zona · sin trazar todavía') : (p.identificacion || 'sin identificación')}</span></span>
-          </div>`;
-        });
-      });
-    }
+    // La lista va en su propio contenedor: al buscar se reemplaza solo esta
+    // parte, dejando intactos los controles y sus escuchadores.
+    h += `<div data-role="list"></div>`;
     h += `<details class="fold leg-fold"${openAttr}>
       <summary>Cómo leer el mapa</summary>
       <div class="leg">
@@ -259,7 +302,8 @@ export async function initAtlasMap(root) {
       </dl>
       </div></div></details>`;
     railEl.innerHTML = h;
-    railEl.querySelectorAll('.row').forEach(el => el.addEventListener('click', () => select(el.dataset.id, true)));
+    listEl = railEl.querySelector('[data-role="list"]');
+    renderFullList();
     railEl.querySelector('#tInf').addEventListener('change', e => { drawMarks(e.target.checked) });
     railEl.querySelector('#tLine').addEventListener('change', e => {
       e.target.checked ? layerLine.addTo(map) : map.removeLayer(layerLine)
@@ -303,6 +347,73 @@ export async function initAtlasMap(root) {
       `<span><b>${c('provisional')}</b> provisionales</span>` +
       `<span><b>${c('pendiente')}</b> pendientes</span>` +
       `<span><b>${F.length}</b> lugares</span>`;
+  }
+
+  // ---------- buscador ----------
+  const index = buildIndex(F);
+  let results = [];
+  let selIdx = -1;
+
+  function highlight(i) {
+    const rows = [...listEl.querySelectorAll('.row')];
+    rows.forEach(r => r.classList.remove('sel'));
+    if (i < 0 || i >= rows.length) return;
+    rows[i].classList.add('sel');
+    rows[i].scrollIntoView({ block: 'nearest' });
+  }
+
+  function applySearch(q) {
+    selIdx = -1;
+    if (searchClearEl) searchClearEl.hidden = !q;
+    if (!q.trim()) {
+      results = [];
+      renderFullList();
+      return;
+    }
+    // Con el panel plegado los resultados serían invisibles: hay que abrirlo.
+    if (root.classList.contains('rail-hidden')) railToggleEl?.click();
+    results = runSearch(index, q);
+    renderResults(results, q);
+  }
+
+  if (searchEl) {
+    searchEl.addEventListener('input', () => applySearch(searchEl.value));
+
+    searchEl.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        searchEl.value = '';
+        applySearch('');
+        searchEl.blur();
+        return;
+      }
+      if (!results.length) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        selIdx = (selIdx + 1) % results.length;
+        highlight(selIdx);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        selIdx = selIdx <= 0 ? results.length - 1 : selIdx - 1;
+        highlight(selIdx);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        // Sin flechas, Enter va al primer resultado: es lo que se espera
+        // tras teclear el nombre completo.
+        const r = results[selIdx >= 0 ? selIdx : 0];
+        if (r) {
+          select(r.id, true);
+          searchEl.blur();
+        }
+      }
+    });
+  }
+
+  if (searchClearEl) {
+    searchClearEl.addEventListener('click', () => {
+      searchEl.value = '';
+      applySearch('');
+      searchEl.focus();
+    });
   }
 
   // Plegar el panel entero deja el mapa a pantalla completa en el móvil.
