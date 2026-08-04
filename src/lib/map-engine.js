@@ -106,6 +106,8 @@ export async function initAtlasMap(root) {
   const railEl = root.querySelector('[data-role="rail"]');
   const tallyEl = root.querySelector('[data-role="tally"]');
   const subtitleEl = root.querySelector('[data-role="subtitle"]');
+  const railToggleEl = root.querySelector('[data-role="rail-toggle"]');
+  const railToggleLabelEl = root.querySelector('[data-role="rail-toggle-label"]');
 
   // En pantallas estrechas los controles y la leyenda van plegados: si no,
   // se comen el panel entero y solo caben dos lugares de la lista.
@@ -301,6 +303,22 @@ export async function initAtlasMap(root) {
       `<span><b>${c('provisional')}</b> provisionales</span>` +
       `<span><b>${c('pendiente')}</b> pendientes</span>` +
       `<span><b>${F.length}</b> lugares</span>`;
+  }
+
+  // Plegar el panel entero deja el mapa a pantalla completa en el móvil.
+  if (railToggleEl) {
+    railToggleEl.addEventListener('click', () => {
+      const hidden = root.classList.toggle('rail-hidden');
+      railToggleEl.setAttribute('aria-expanded', String(!hidden));
+      if (railToggleLabelEl) {
+        railToggleLabelEl.textContent = hidden
+          ? `Ver los ${F.length} lugares ▾`
+          : 'Ocultar la lista ▴';
+      }
+      // Leaflet cachea el tamaño del contenedor: sin esto el mapa queda
+      // dibujado con la altura vieja y aparece una franja gris.
+      map.invalidateSize();
+    });
   }
 
   buildRail(); drawMarks(true); drawLine(); drawZones(); tally();

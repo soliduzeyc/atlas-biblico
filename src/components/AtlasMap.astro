@@ -18,6 +18,9 @@ const { geojsonUrl, title } = Astro.props;
   </header>
   <div class="shell">
     <aside class="rail" data-role="rail"></aside>
+    <button type="button" class="rail-toggle" data-role="rail-toggle" aria-expanded="true">
+      <span data-role="rail-toggle-label">Ocultar la lista ▴</span>
+    </button>
     <div class="atlas-map" data-role="map"></div>
   </div>
 </div>
@@ -36,6 +39,9 @@ const { geojsonUrl, title } = Astro.props;
 
   .atlas-app .shell { flex: 1; display: flex; min-height: 0; }
   .atlas-app .atlas-map { flex: 1; min-height: 0; background: var(--paper-2); }
+
+  /* Solo en móvil: pliega el panel entero para dejar el mapa a pantalla completa. */
+  .atlas-app .rail-toggle { display: none; }
 
   .atlas-app .rail {
     width: 326px; flex-shrink: 0; overflow-y: auto; border-right: 1px solid var(--line);
@@ -151,6 +157,26 @@ const { geojsonUrl, title } = Astro.props;
 
     .atlas-app .fold > summary { display: block; }
     .atlas-app .fold[open] > summary { border-bottom-color: var(--line); }
+
+    .atlas-app .rail-toggle {
+      display: block;
+      flex: 0 0 auto;
+      width: 100%;
+      padding: 11px 14px;
+      background: var(--paper);
+      color: var(--ink-2);
+      border: none;
+      border-top: 1px solid var(--line);
+      font-family: var(--f-mono);
+      font-size: 10px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      text-align: left;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .atlas-app .rail-toggle:active { background: var(--paper-2); }
+    .atlas-app.rail-hidden .rail { display: none; }
 
     .atlas-app .hdr { padding: 8px 14px; gap: 10px; }
     .atlas-app .hdr h1 { font-size: 20px; }
