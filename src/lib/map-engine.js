@@ -107,6 +107,10 @@ export async function initAtlasMap(root) {
   const tallyEl = root.querySelector('[data-role="tally"]');
   const subtitleEl = root.querySelector('[data-role="subtitle"]');
 
+  // En pantallas estrechas los controles y la leyenda van plegados: si no,
+  // se comen el panel entero y solo caben dos lugares de la lista.
+  const compact = window.matchMedia('(max-width: 820px)').matches;
+
   const res = await fetch(geojsonUrl);
   const DATA = await res.json();
 
@@ -195,12 +199,16 @@ export async function initAtlasMap(root) {
 
   function buildRail() {
     const segmentoLabels = DATA.metadata?.segmentos || {};
-    let h = `<div class="ctrls">
-      <label><input type="checkbox" id="tInf" checked> Mostrar posiciones inferidas</label>
-      <label><input type="checkbox" id="tLine" checked> Mostrar el trazado de la frontera</label>
-      <label><input type="checkbox" id="tDan"> Marcar lo que después pasó a Dan</label>
-      <label><input type="checkbox" id="tZone" checked> Mostrar valles y regiones</label>
-    </div>`;
+    const openAttr = compact ? '' : ' open';
+    let h = `<details class="fold ctrls-fold"${openAttr}>
+      <summary>Opciones de visualización</summary>
+      <div class="ctrls">
+        <label><input type="checkbox" id="tInf" checked> Mostrar posiciones inferidas</label>
+        <label><input type="checkbox" id="tLine" checked> Mostrar el trazado de la frontera</label>
+        <label><input type="checkbox" id="tDan"> Marcar lo que después pasó a Dan</label>
+        <label><input type="checkbox" id="tZone" checked> Mostrar valles y regiones</label>
+      </div>
+    </details>`;
     for (const [seg, group] of groupBySegmento(F)) {
       if (segmentoLabels[seg]) h += `<div class="segmento">${segmentoLabels[seg]}</div>`;
       const tramos = [...new Set(group.map(f => f.properties.tramo))].sort((a, b) => a - b);
@@ -220,7 +228,9 @@ export async function initAtlasMap(root) {
         });
       });
     }
-    h += `<div class="leg"><h2>Cómo leer el mapa</h2>
+    h += `<details class="fold leg-fold"${openAttr}>
+      <summary>Cómo leer el mapa</summary>
+      <div class="leg">
       <dl>
         <dt style="color:var(--olive)">●</dt><dd>Coordenada verificada con fuente</dd>
         <dt style="color:var(--olive)">◍</dt><dd>Provisional: sin fuente confirmada, pero coherente</dd>
@@ -245,7 +255,7 @@ export async function initAtlasMap(root) {
         <dt style="color:var(--sea)">◎</dt><dd>Anillo continuo: la ciudad se nombra en el texto</dd>
         <dt style="color:var(--sea)">◌</dt><dd>Anillo discontinuo: identificación probable, o solo sombreada en un mapa de referencia</dd>
       </dl>
-      </div></div>`;
+      </div></div></details>`;
     railEl.innerHTML = h;
     railEl.querySelectorAll('.row').forEach(el => el.addEventListener('click', () => select(el.dataset.id, true)));
     railEl.querySelector('#tInf').addEventListener('change', e => { drawMarks(e.target.checked) });
@@ -258,6 +268,9 @@ export async function initAtlasMap(root) {
     railEl.querySelector('#tDan').addEventListener('change', e => {
       showDan = e.target.checked;
       railEl.querySelector('#danLeg').style.display = showDan ? 'block' : 'none';
+      // La leyenda del anillo azul vive dentro del plegable: al activar la capa
+      // hay que abrirlo, o el usuario ve anillos nuevos sin explicación.
+      if (showDan) railEl.querySelector('.leg-fold')?.setAttribute('open', '');
       drawMarks(railEl.querySelector('#tInf').checked)
     });
   }
@@ -292,5 +305,10 @@ export async function initAtlasMap(root) {
 
   buildRail(); drawMarks(true); drawLine(); drawZones(); tally();
   const pts = Object.values(POS);
-  if (pts.length) map.fitBounds(L.latLngBounds(pts.map(p => [p.lat, p.lng])), { padding: [42, 42] });
+  if (pts.length) {
+    // El encuadre abarca de Jerusalén al Sinaí; en pantallas estrechas un
+    // margen de 42 px deja el contenido reducido a una mancha en el centro.
+    const pad = compact ? 14 : 42;
+    map.fitBounds(L.latLngBounds(pts.map(p => [p.lat, p.lng])), { padding: [pad, pad] });
+  }
 }

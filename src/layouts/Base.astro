@@ -29,6 +29,11 @@ const { title } = Astro.props;
         -webkit-font-smoothing: antialiased;
       }
       #page { display: flex; flex-direction: column; height: 100%; }
+      /* La barra de Safari en iOS cambia de alto al hacer scroll; dvh sigue
+         ese cambio y evita que el contenido quede cortado por debajo. */
+      @supports (height: 100dvh) {
+        #page { height: 100dvh; }
+      }
     </style>
   </head>
   <body>
