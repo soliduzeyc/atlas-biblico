@@ -1,7 +1,7 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "titulo": "Límite de Judá (norte compartido con Benjamín + sur, Cadés-Barnea)",
+    "titulo": "Límite Judá–Benjamín (frontera norte de Judá)",
     "version": "4.0",
     "fecha": "2026-07-28",
     "traduccion_base": "Traducción del Nuevo Mundo, revisión 2019",
@@ -11,9 +11,9 @@
     ],
     "sentido_orden": "este a oeste (según Josué 15)",
     "esquema": "atlas-esquema-v2.md",
-    "coordenadas_verificadas": 7,
-    "coordenadas_pendientes": 16,
-    "total_registros": 36,
+    "coordenadas_verificadas": 5,
+    "coordenadas_pendientes": 10,
+    "total_registros": 27,
     "coordenadas_rechazadas": [
       {
         "registro": "quiryat-jearim",
@@ -41,17 +41,11 @@
       "localidad": "Coordenada del pueblo o localidad moderna que contiene o vecina al sitio. Dibujar con anillo de imprecisión.",
       "null": "Sin coordenada."
     },
-    "coordenadas_provisionales": 13,
+    "coordenadas_provisionales": 12,
     "nota_v3": "Se incorporan 8 coordenadas de lectura asistida como PROVISIONALES. Dos de ellas (en-roguel, bet-semes) fueron detectadas como copia literal del ejemplo de formato de la hoja de campo; se conservan por pasar validación geométrica, pero marcadas en 'advertencia'. Ninguna coordenada provisional se dibuja como punto sólido.",
     "campo_tribu_posterior": "Registra si un lugar del límite de Judá fue después adjudicado a otra tribu. El límite norte de Judá en el Tramo 3 atraviesa territorio asignado luego a Dan (Jos 19:40-48). Niveles de certeza: 'nombrado' (la ciudad aparece por su nombre en la lista), 'probable' (aparece una forma variante del nombre), 'solo_cartografico' (no está en el texto; solo lo sombrea el mapa B6 de la TNM). Contexto: Jos 19:47 y Jue 18 relatan que Dan no logró retener este territorio y emigró al norte.",
     "nota_v4": "Se trazaron 5 de las 6 zonas como LineString con anclajes reales citados (puertas de Jerusalén, Colonia Alemana, Qasr al-Yahud, Bet-Hoglá, costa de Ashdod/Nitzanim). El valle de Acor queda explícitamente pendiente: no hay fuente que dé coordenadas del altiplano el-Buqeiʽah, solo su descripción cualitativa. El Arabá y la bahía norte del mar Salado comparten el mismo corredor por indicación del propio texto (Jos 18:18-19).",
-    "segmentos": {
-      "norte": "Frontera norte · con Benjamín (Josué 15 / Josué 18)",
-      "sur": "Frontera sur · Cadés-Barnea (Josué 15 / Números 34)"
-    },
-    "nota_v5": "Se añade el segmento 'sur' (tramo 4): límite sur de Judá, Josué 15:1-4 cruzado con Números 34:3-5. 2 coordenadas verificadas (Cadés-Barnea = Tell el-Qudeirat; torrente de Egipto = desembocadura del Wadi al-Arish), 1 provisional (Subida de Acrabim, por continuidad toponímica con el paso moderno homónimo en la Ruta 227 de Israel), 6 pendientes sin coordenada citable (bahía sur del mar Salado, desierto de Zin, Hezrón, Addar, Carcá, Azmón). Números 34:4 funde Hezrón y Addar en un solo nombre, 'Hazar-Addar'; Josué 15:3 los lista como dos puntos separados: se documentan ambas lecturas. Ninguna coordenada de este segmento proviene de lectura de mapas ni de imágenes generadas por IA: todas citan una fuente textual/gazetteer concreta o quedan explícitamente pendientes.",
-    "nota_v6": "Revisión del tramo sur contra Perspicacia, buscando con SUS grafías (Qadés-barnea, Qarqá, Aqrabim) en vez de las de la TNM 2019. La primera investigación usó solo fuentes seculares y pasó por alto estas entradas. Resultados: (a) Azmón deja de estar 'en disputa' — Perspicacia lo sitúa en ʽAin el-Qeseimeh, sube a confianza media; (b) Qarqá y Addar ganan propuestas citables aunque siguen sin coordenada; (c) queda documentada una divergencia de fondo en Qadés-barnea, donde Perspicacia prefiere ʽAin Qedeis frente al consenso moderno de Tell el-Qudeirat, con la consecuencia de que la coordenada cargada correspondería a Addar bajo el marco de Perspicacia. Esa decisión queda abierta.",
-    "campo_lectura_alternativa": "Registra una identificación rival documentada para un mismo topónimo, con su propia posición y fuente. Existe para no obligar al atlas a elegir entre dos autoridades cuando ambas están citadas: se dibujan las dos y se unen con una línea. 'coordenada_estado: derivada' significa que la posición se calculó a partir de una restricción citable (distancia y rumbo), no de una coordenada publicada, y por eso nunca se dibuja como punto sólido y siempre lleva halo."
+    "nota_v7": "Se retiran los 9 registros del tramo sur que se habían añadido aquí en la v5. Duplicaban el contenido de limite-sur-juda.geojson y, peor, lo contradecían: aquella tanda seguía el consenso arqueológico (Cadés-Barnea = Tell el-Qudeirat) mientras que el archivo dedicado sigue a Perspicacia (Cadés-Barnea = ʽAin Qedeis, con Tell el-Qudeirat asignado a Addar). Se conserva la versión dedicada, mejor fundamentada: valida las identificaciones contra las distancias que la propia Perspicacia declara (9,28 km calculados frente a ~9 km declarados). Este archivo vuelve a cubrir solo la frontera norte, compartida con Benjamín (Jos 15:5-12 / Jos 18:14-20). El historial de git conserva los registros retirados."
   },
   "features": [
     {
@@ -88,8 +82,7 @@
         "nota": "Punto de arranque de la frontera. Rasgo hídrico, no asentamiento. | Corredor aproximado del Jordán entrando a la cuenca norte del mar Salado, NO la línea de costa real de la bahía (que ha cambiado con el nivel histórico del mar Muerto).",
         "advertencia": null,
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "LineString",
@@ -143,8 +136,7 @@
         "nota": "Jos 18:19 precisa que la frontera pasaba por su ladera norte.",
         "advertencia": null,
         "precision": "sitio",
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "Point",
@@ -188,8 +180,7 @@
         "nota": "La frontera pasaba al norte de la ciudad, no por ella.",
         "advertencia": "También figura en Jos 15:61 como ciudad de Judá en el desierto.",
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": null
     },
@@ -226,8 +217,7 @@
         "nota": "Dato exclusivo de Josué 18. No aparece en Josué 15. Es el ejemplo claro del valor de cruzar ambos pasajes. | Jos 18:18 sitúa El Arabá en el mismo tramo que la bahía norte del mar Salado (18:19): son la misma región geográfica nombrada dos veces en el texto. No se traza como zona distinta por falta de fuente que las diferencie; comparte corredor con 'bahia-norte-mar-salado'.",
         "advertencia": null,
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "LineString",
@@ -277,8 +267,7 @@
         "nota": "Mojón conmemorativo, no un asentamiento. Su desaparición física es esperable.",
         "advertencia": null,
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": null
     },
@@ -315,8 +304,7 @@
         "nota": "Perspicacia descarta Wadi Qelt: la descripción de Jos 15:7 lo sitúa más al sur, e Is 65:10 sugiere una zona más amplia. Propone la meseta árida al norte y sur de Wadi Qumrán, cerca del extremo NO del mar Muerto. | Sin coordenada citable para la EXTENSIÓN del altiplano el-Buqeiʽah. Qumrán (31.74083, 35.45861) queda justo debajo, en la orilla, y sirve de referencia de orientación, pero no se usa como geometría porque no es el valle mismo.",
         "advertencia": "Muchos atlas comerciales lo ubican en Wadi Qelt. No copiar de ellos.",
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": null
     },
@@ -348,8 +336,7 @@
         "nota": "La TNM 2019 lo ubica DENTRO del valle de Acor. Otras versiones lo tratan como punto separado al que la frontera subía DESDE el valle. Este proyecto usa la lectura TNM.",
         "advertencia": "NO confundir con el Debir de Jos 15:15 (Quiryat-Séfer), en la región montañosa del sur. Son ciudades distintas con el mismo nombre.",
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": null
     },
@@ -391,8 +378,7 @@
         "nota": "Un solo punto con dos formas del nombre. Ambos pasajes lo sitúan enfrente de la subida de Adumim, lo que confirma la identidad.",
         "advertencia": "NO es el Guilgal de Josué 4 (el del cruce del Jordán).",
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": null
     },
@@ -438,8 +424,7 @@
         "nota": "El nombre significa 'Subida de Sangre'. Perspicacia atribuye el nombre al color rojizo del suelo, rico en ocre, más que a los asaltantes de caminos que mencionaban escritores antiguos. | Museo del Buen Samaritano / Khan al-Hatruri, paso histórico de la ruta antigua Jerusalén–Jericó.",
         "advertencia": null,
         "precision": "sitio",
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "Point",
@@ -487,8 +472,7 @@
         "nota": "Manantial. El nombre significa 'Fuente del Sol'. | Manantial Ayn al-Hawd. Cae dentro del corredor Adumim–En-Roguel, como exige el texto.",
         "advertencia": null,
         "precision": "sitio",
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "Point",
@@ -542,8 +526,7 @@
         "nota": "Al sur de la esquina sureste de la muralla de Jerusalén, al pie de la margen occidental del valle de Cedrón, unos 100 m al sur de su confluencia con el valle de Hinón. Descripción suficientemente precisa para levantar coordenada. | Bir Ayyub. Validación geométrica: 523 m al sur de la Ciudad de David; Perspicacia describe ~500 m al S de la confluencia Cedrón–Hinón.",
         "advertencia": " ⚠️ ORIGEN CONTAMINADO: este valor coincide carácter por carácter con el ejemplo de formato ficticio de la sección 'Cómo me lo devuelves' de hoja-de-campo-coordenadas.md. No procede de una búsqueda. Pasa las pruebas geométricas, pero requiere confirmación manual directa antes de promover.",
         "precision": "sitio",
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "Point",
@@ -591,8 +574,7 @@
         "nota": "Valle al sur y suroeste de la ciudad antigua. Va como polígono, no como punto. | Traza el curso descrito en la fuente: nace al oeste de la Puerta de Jaffa, gira al sur bordeando el Monte Sion (Puerta de Sion), y curva al este hasta la confluencia con el Cedrón, cerca de la ladera sur de la Ciudad de David.",
         "advertencia": null,
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "LineString",
@@ -647,8 +629,7 @@
         "nota": "La frontera pasaba por la ladera SUR. Jerusalén queda del lado de Benjamín. Jos 15:63 aclara que Judá no logró expulsar a los jebuseos. | Parque arqueológico Ciudad de David. Punto a media ladera; el texto habla de la ladera SUR, así que admite refinamiento hacia el extremo meridional.",
         "advertencia": null,
         "precision": "sitio",
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "Point",
@@ -683,8 +664,7 @@
         "nota": "Rasgo topográfico sin nombre propio. El texto lo define por posición relativa: al oeste del valle de Hinón, en el extremo norte del valle de Refaím.",
         "advertencia": null,
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": null
     },
@@ -730,8 +710,7 @@
         "nota": "Al suroeste de Jerusalén. Tras aproximadamente kilómetro y medio de declive, la llanura se estrecha en un valle angosto, Wadi el Werd. | Traza SOLO el tramo documentado, desde el borde SO de la ciudad antigua hasta la actual calle Emek Refaim. La llanura sigue descendiendo hacia el suroeste y se angosta en Wadi el Werd, pero no hay coordenada citable para ese tramo; no se prolonga la línea por prudencia.",
         "advertencia": null,
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "LineString",
@@ -789,8 +768,7 @@
         "nota": "Al noroeste de Jerusalén.",
         "advertencia": "Jos 18:15 dice que desde Quiryat-Jearim la frontera iba 'hacia el oeste' hasta aquí, pero Neftóah queda al ESTE de Quiryat-Jearim. Revisar notas al pie antes de trazar.",
         "precision": "sitio",
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "Point",
@@ -828,8 +806,7 @@
         "nota": "El texto habla de varias ciudades, no de una. Podría requerir tratamiento como zona si aparece propuesta.",
         "advertencia": null,
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": null
     },
@@ -887,8 +864,7 @@
         "nota": "A unos 13 km al oeste-noroeste de Jerusalén. Coincide con Eusebio, que la sitúa a 9 o 10 millas romanas. El nombre significa 'Ciudad de Bosques', lo que encaja con una zona antiguamente arbolada. | Excavado desde 2017 por Finkelstein (Univ. Tel Aviv) y Römer/Nicolle (Collège de France). Coordenada a nivel de localidad, no del tel. Refinar al centro de Deir el-ʽAzar cuando haya dato. Nota: Conder (PEF, s. XIX) propuso Kh. ʽErma, unos 3,5 km al sur de Kasla, identificación hoy minoritaria. | Monasterio de Nuestra Señora del Arca de la Alianza, sobre la colina del tel Deir el-ʽAzar. Sube de 'localidad' a 'sitio'. A 11,1 km de Jerusalén; Perspicacia indica ~13 km ONO.",
         "advertencia": "PUNTO DE CIERRE DE BENJAMÍN. Jos 18:14 termina aquí la frontera de Benjamín. El tramo 3 es solo límite de Judá.",
         "precision": "sitio",
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "Point",
@@ -926,8 +902,7 @@
         "nota": "Propuesta de geografía bíblica israelí (Yeshivat Har Etzion): el monte Jearim sería la cordillera que corre al oeste desde la cumbre del Castel, pasando por Tzova y Givʽat Yeʽarim en dirección a Ksalon. El monte Seír quedaría dentro de esa cordillera, al OESTE de Quiryat-Jearim y al ESTE de Kesalón. Es una propuesta, no consenso: la confianza se mantiene baja, pero ahora hay restricción posicional para la interpolación.",
         "advertencia": "NO confundir con el monte Seír de Edom, muy al sureste. Homónimos.",
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": null
     },
@@ -967,8 +942,7 @@
         "nota": "El texto identifica Kesalón con la ladera norte del monte Jearim. | ATENCIÓN: el sitio antiguo NO es el moshav. Kesalón se identifica con las ruinas en lo alto del tel de la aldea árabe de Kasla, destruida en 1948, situada AL NORTE del moshav moderno. Coordenada provisional; corregir hacia el norte cuando haya dato del tel. | Ruinas de la aldea antigua, 763 m al NORTE del moshav Ksalon. Sube de 'localidad' a 'sitio'.",
         "advertencia": null,
         "precision": "sitio",
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "Point",
@@ -1017,8 +991,7 @@
           "referencia": "Jos 19:41",
           "certeza": "probable",
           "nota": "Jos 19:41 nombra 'Ir-Semes' (Ciudad del Sol) en la herencia de Dan. Se identifica comúnmente con Bet-Semes (Casa del Sol), pero el texto usa otra forma del nombre: identificación probable, no explícita. Jos 21:16 la asigna además como ciudad levítica dentro de Judá."
-        },
-        "segmento": "norte"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1067,8 +1040,7 @@
           "referencia": "Jos 19:43",
           "certeza": "nombrado",
           "nota": "Nombrada explícitamente en la herencia de Dan."
-        },
-        "segmento": "norte"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1117,8 +1089,7 @@
           "referencia": "Jos 19:43",
           "certeza": "nombrado",
           "nota": "Nombrada explícitamente en la herencia de Dan. Además Jos 15:45 la lista entre las ciudades de Judá, y Jos 13:3 la cuenta entre los señoríos filisteos no conquistados. Triple reclamo textual."
-        },
-        "segmento": "norte"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1156,8 +1127,7 @@
         "nota": "Solo aparece aquí en toda la Biblia. Sin otro dato posicional.",
         "advertencia": null,
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": null
     },
@@ -1193,8 +1163,7 @@
         "nota": null,
         "advertencia": "NO confundir con Baalá = Quiryat-Jearim (orden 18), ni con la Baalá de Jos 15:29, en el Négueb. Tres entidades distintas con nombre parecido.",
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": null
     },
@@ -1235,8 +1204,7 @@
           "referencia": null,
           "certeza": "solo_cartografico",
           "nota": "NO figura en la lista de Jos 19:41-46. El mapa B6 de la TNM lo sitúa dentro del área sombreada de Dan, probablemente por la cláusula de Jos 19:46 ('con la frontera enfrente de Jope'), que no nombra ciudades. Reasignación cartográfica, no textual."
-        },
-        "segmento": "norte"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1279,8 +1247,7 @@
         "nota": "Cierre occidental de la frontera. Jos 15:12 lo declara límite oeste de todo Judá. | Segmento representativo de la costa mediterránea a la altura de Judá/Filistea. NO es el litoral completo del límite occidental de Judá (Jos 15:12), que se extiende mucho más al norte y al sur.",
         "advertencia": null,
         "precision": null,
-        "tribu_posterior": null,
-        "segmento": "norte"
+        "tribu_posterior": null
       },
       "geometry": {
         "type": "LineString",
@@ -1293,389 +1260,6 @@
             34.61472,
             31.73694
           ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "bahia-sur-mar-salado",
-        "nombre": "Bahía sur del mar Salado",
-        "aliases": [
-          {
-            "forma": "la bahía que da al sur",
-            "fuente": "TNM 2019, Jos 15:2"
-          }
-        ],
-        "identificacion": "Extremo sur del mar Muerto (\"la lengua\", lashón)",
-        "confianza": "alta",
-        "fuente": "Texto bíblico",
-        "render": "zona",
-        "coordenada_estado": "pendiente",
-        "fuente_coordenada": null,
-        "referencias": [
-          "Jos 15:2",
-          "Nm 34:3"
-        ],
-        "tramo": 4,
-        "orden": 28,
-        "segmento": "sur",
-        "pertenece_a": [
-          "juda"
-        ],
-        "nota": "Punto de arranque de la frontera sur, en el extremo (\"la lengua\") del mar Salado. Los comentaristas no coinciden en qué rasgo exacto es \"la lengua\": un promontorio rocoso, un banco de sal, o simplemente el extremo sur del mar. Sin coordenada única citable para el punto exacto.",
-        "advertencia": "Distinta de la \"bahía norte del mar Salado\" (id: bahia-norte-mar-salado, tramo 1, segmento norte): son los dos extremos opuestos del mar Salado, no el mismo lugar.",
-        "precision": null,
-        "tribu_posterior": null
-      },
-      "geometry": null
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "subida-de-acrabim",
-        "nombre": "Subida de Acrabim",
-        "aliases": [
-          {
-            "forma": "Acrabim",
-            "fuente": "RV60, Jos 15:3"
-          },
-          {
-            "forma": "la subida de Acrabim",
-            "fuente": "RV60, Jos 15:3"
-          },
-          {
-            "forma": "Aqrabim",
-            "fuente": "Perspicacia (vol. 1), 'subida de Aqrabim'"
-          }
-        ],
-        "identificacion": "Naqb es-Safa / Maʽale Aqrabim",
-        "confianza": "alta",
-        "fuente": "Continuidad toponímica: el paso conserva el nombre hebreo en la Ruta 227 de Israel",
-        "render": "inferido",
-        "coordenada_estado": "provisional",
-        "fuente_coordenada": "Wikipedia / Wikidata, \"Ma'ale Akrabim\"",
-        "referencias": [
-          "Jos 15:3",
-          "Nm 34:4",
-          "Jue 1:36"
-        ],
-        "tramo": 4,
-        "orden": 29,
-        "segmento": "sur",
-        "pertenece_a": [
-          "juda"
-        ],
-        "nota": "El paso moderno de la Ruta 227 conserva el nombre bíblico casi intacto (hebreo Maʽale Aqrabim, \"subida de los escorpiones\"; árabe Naqb es-Safa). La \"subida\" bíblica es un tramo de camino, no un punto exacto; se marca la coordenada del paso reconocido como sitio patrimonial en Israel.",
-        "advertencia": null,
-        "precision": "sitio",
-        "tribu_posterior": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          35.13167,
-          30.90667
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "desierto-de-zin",
-        "nombre": "Desierto de Zin",
-        "aliases": [
-          {
-            "forma": "Zin",
-            "fuente": "RV60, Jos 15:3"
-          }
-        ],
-        "identificacion": "Región desértica entre el Négueb y el Arabá, al SO del mar Salado",
-        "confianza": "alta",
-        "fuente": "Texto bíblico",
-        "render": "zona",
-        "coordenada_estado": "pendiente",
-        "fuente_coordenada": null,
-        "referencias": [
-          "Jos 15:1",
-          "Jos 15:3",
-          "Nm 34:3",
-          "Nm 34:4"
-        ],
-        "tramo": 4,
-        "orden": 30,
-        "segmento": "sur",
-        "pertenece_a": [
-          "juda"
-        ],
-        "nota": "Región extensa, no un punto. Incluye el entorno de Cadés-Barnea. Sin coordenada citable para sus límites; queda pendiente representarlo como zona cuando haya fuente para el polígono.",
-        "advertencia": "No confundir con el desierto de Sin (Éx 16:1), de ortografía parecida en español pero nombre hebreo distinto.",
-        "precision": null,
-        "tribu_posterior": null
-      },
-      "geometry": null
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "cades-barnea",
-        "nombre": "Cadés-Barnea",
-        "aliases": [
-          {
-            "forma": "Qadés-barnea",
-            "fuente": "Perspicacia (vol. 2)"
-          },
-          {
-            "forma": "Cades-barnea",
-            "fuente": "RV60, Jos 15:3"
-          },
-          {
-            "forma": "Kadesh-Barnea",
-            "fuente": "transliteración inglesa habitual"
-          },
-          {
-            "forma": "Qadés",
-            "fuente": "Perspicacia (vol. 2), forma corta"
-          }
-        ],
-        "identificacion": "Tell el-Qudeirat, junto al manantial ʽEin el-Qudeirat",
-        "confianza": "alta",
-        "fuente": "Consenso arqueológico moderno",
-        "render": "punto",
-        "coordenada_estado": "verificada",
-        "fuente_coordenada": "Wikipedia, \"Tell el-Qudeirat\"",
-        "referencias": [
-          "Jos 15:3",
-          "Nm 34:4",
-          "Nm 13:26",
-          "Dt 1:19"
-        ],
-        "tramo": 4,
-        "orden": 31,
-        "segmento": "sur",
-        "pertenece_a": [
-          "juda"
-        ],
-        "nota": "El manantial de ʽEin el-Qudeirat es el más caudaloso del Sinaí y sostiene el oasis más importante de la zona; junto al tell se excavó una fortaleza israelita (Cohen y Bernick-Greenberg). Identificación aceptada por consenso arqueológico moderno, distinta del candidato más antiguo ʽAin Qedeis (~8 km al SSE), hoy asociado más bien con Hazar-Addar.",
-        "advertencia": "⚠️ DIVERGENCIA CON PERSPICACIA. Esta coordenada sigue el consenso arqueológico moderno (Tell el-Qudeirat, junto a ʽAin el-Qudeirat). Perspicacia, entrada 'Qadés', reconoce que ʽAin el-Qudeirat es el mayor de los tres manantiales y que \"hay quien opta por identificarlo con Qadés-barnea\", pero se decanta por ʽAin Qedeis (~9 km al SE), razonando que, por ser el manantial más oriental, encaja mejor con la descripción de este a oeste del límite meridional de Canaán. Consecuencia: bajo el marco de Perspicacia, ESTA coordenada correspondería a Addar/Hazar-Addar, no a Qadés-barnea. Decisión de proyecto pendiente. (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
-        "precision": "sitio",
-        "tribu_posterior": null,
-        "lectura_alternativa": {
-          "etiqueta": "Lectura de Perspicacia",
-          "identificacion": "ʽAin Qedeis",
-          "fuente": "Perspicacia, entrada 'Qadés' (consultado vía wol.jw.org; pendiente cotejar con el texto impreso vol. 2)",
-          "coordenada_estado": "derivada",
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              34.45874,
-              30.57337
-            ]
-          },
-          "derivacion": {
-            "metodo": "distancia y rumbo desde la lectura del consenso",
-            "ancla": "cades-barnea (Tell el-Qudeirat, coordenada verificada)",
-            "distancia_km": 9.0,
-            "rumbo_grados": 157.5,
-            "radio_halo_m": 2500,
-            "fuente_distancia": "Perspicacia, entrada 'Addar': 9 km entre Qadés-barnea (ʽAin Qedeis) y Hazar-Addar (ʽAin el-Qudeirat)",
-            "fuente_rumbo": "ʽAin Qedeis es el manantial más oriental del grupo y queda al SSE de ʽAin el-Qudeirat (bibliografía secular consultada)"
-          },
-          "nota": "ESTA POSICIÓN NO ES UNA COORDENADA CITADA. No se localizó ninguna fuente que publique la coordenada de ʽAin Qedeis, así que el punto se calcula a partir de la distancia que da la propia Perspicacia (9 km) y del rumbo aproximado que describen las fuentes seculares. El halo marca el margen. Perspicacia prefiere este emplazamiento porque, por ser el manantial más oriental, encaja mejor con la descripción de este a oeste del límite meridional de Canaán. Si esta lectura es la correcta, la coordenada verificada de este registro correspondería a Addar/Hazar-Addar."
-        }
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          34.42278,
-          30.64806
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "hezron-sur",
-        "nombre": "Hezrón",
-        "aliases": [],
-        "identificacion": null,
-        "confianza": "baja",
-        "fuente": null,
-        "render": "inferido",
-        "coordenada_estado": "pendiente",
-        "fuente_coordenada": null,
-        "referencias": [
-          "Jos 15:3"
-        ],
-        "tramo": 4,
-        "orden": 32,
-        "segmento": "sur",
-        "pertenece_a": [
-          "juda"
-        ],
-        "nota": "Josué 15:3 lo lista como punto propio entre Cadés-Barnea y Addar. Números 34:4 no lo nombra por separado: lo funde con Addar en \"Hazar-Addar\" (\"recinto/aldea de Addar\"). Perspicacia sigue esa lectura combinada en su entrada 'Addar'. La bibliografía secular propone varias identificaciones modernas distintas, sin consenso mayoritario. (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
-        "advertencia": "No confundir con el Hezrón hijo de Fares, antepasado de Judá (Gn 46:12), ni con la ciudad de Hezrón/Hazor del Négueb listada aparte en Jos 15:25. Homónimos.",
-        "precision": null,
-        "tribu_posterior": null
-      },
-      "geometry": null
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "addar",
-        "nombre": "Addar",
-        "aliases": [
-          {
-            "forma": "Adar",
-            "fuente": "RV60, Jos 15:3"
-          },
-          {
-            "forma": "Hazar-Addar (forma combinada con Hezrón)",
-            "fuente": "TNM 2019, Nm 34:4"
-          }
-        ],
-        "identificacion": "Sin consenso; Perspicacia recoge la propuesta de ʽAin el-Qudeirat",
-        "confianza": "baja",
-        "fuente": "Perspicacia, entrada 'Addar' (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
-        "render": "inferido",
-        "coordenada_estado": "pendiente",
-        "fuente_coordenada": null,
-        "referencias": [
-          "Jos 15:3"
-        ],
-        "tramo": 4,
-        "orden": 33,
-        "segmento": "sur",
-        "pertenece_a": [
-          "juda"
-        ],
-        "nota": "Números 34:4 combina este punto con Hezrón bajo el nombre \"Hazar-Addar\"; Josué 15:3 los trata como dos puntos separados de la ruta. Perspicacia, entrada 'Addar', recoge que la obra Biblical Archaeology (G. E. Wright) propone como ubicación posible ʽAin el-Qudeirat, donde un manantial perenne riega un valle pequeño pero fértil, y da 9 km de distancia entre Qadés-barnea (ʽAin Qedeis) y Hazar-Addar (ʽAin el-Qudeirat). (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
-        "advertencia": "Esa propuesta choca con la coordenada cargada para 'cades-barnea', que sitúa Cadés-Barnea en Tell el-Qudeirat siguiendo el consenso moderno: bajo el marco de Perspicacia ese punto sería este registro, no aquél. Ver la advertencia de 'cades-barnea'.",
-        "precision": null,
-        "tribu_posterior": null
-      },
-      "geometry": null
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "carca",
-        "nombre": "Carcá",
-        "aliases": [
-          {
-            "forma": "Qarqá",
-            "fuente": "Perspicacia (vol. 2)"
-          },
-          {
-            "forma": "Carca",
-            "fuente": "RV60, Jos 15:3"
-          }
-        ],
-        "identificacion": "Sin consenso; Perspicacia recoge una propuesta tentativa (estanque en la confluencia de Wadi el-ʽAin con Wadi Umm Hashim)",
-        "confianza": "baja",
-        "fuente": "Perspicacia, entrada 'Qarqá' (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
-        "render": "inferido",
-        "coordenada_estado": "pendiente",
-        "fuente_coordenada": null,
-        "referencias": [
-          "Jos 15:3"
-        ],
-        "tramo": 4,
-        "orden": 34,
-        "segmento": "sur",
-        "pertenece_a": [
-          "juda"
-        ],
-        "nota": "Mencionado una sola vez en toda la Biblia, solo en esta lista; no aparece en Números 34. Perspicacia, entrada 'Qarqá': \"Su ubicación exacta se desconoce en la actualidad\", pero recoge que algunos eruditos lo identifican tentativamente con un estanque de muy buena construcción hallado en la confluencia de Wadi el-ʽAin con Wadi Umm Hashim, a unos 4 km al ESE de Azmón (ʽAin el-Qeseimeh). Se mantiene sin coordenada: la propia fuente la declara desconocida y no da cifras. (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
-        "advertencia": null,
-        "precision": null,
-        "tribu_posterior": null
-      },
-      "geometry": null
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "azmon",
-        "nombre": "Azmón",
-        "aliases": [
-          {
-            "forma": "Asmón",
-            "fuente": "RV60, Jos 15:4"
-          },
-          {
-            "forma": "ʽAin el-Qeseimeh",
-            "fuente": "Perspicacia (vol. 2), nombre moderno"
-          }
-        ],
-        "identificacion": "ʽAin el-Qeseimeh",
-        "confianza": "media",
-        "fuente": "Perspicacia, entrada 'Qarqá', que sitúa Azmón en ʽAin el-Qeseimeh (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
-        "render": "inferido",
-        "coordenada_estado": "pendiente",
-        "fuente_coordenada": null,
-        "referencias": [
-          "Jos 15:4",
-          "Nm 34:4",
-          "Nm 34:5"
-        ],
-        "tramo": 4,
-        "orden": 35,
-        "segmento": "sur",
-        "pertenece_a": [
-          "juda"
-        ],
-        "nota": "Marca el tramo occidental del límite sur, justo antes de salir al torrente de Egipto. Perspicacia identifica Azmón con ʽAin el-Qeseimeh, usándolo además como punto de referencia para situar Qarqá (~4 km al ONO de ese estanque). Esto resuelve a favor de uno de los dos candidatos que la bibliografía secular dejaba en disputa (el otro era ʽAin Muweileh). Sigue sin coordenada citable para el manantial. (consultado vía wol.jw.org; pendiente cotejar con el texto impreso de Perspicacia vol. 2)",
-        "advertencia": null,
-        "precision": null,
-        "tribu_posterior": null
-      },
-      "geometry": null
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "torrente-de-egipto",
-        "nombre": "Torrente de Egipto",
-        "aliases": [
-          {
-            "forma": "río de Egipto",
-            "fuente": "RV60, Jos 15:4"
-          },
-          {
-            "forma": "Wadi al-Arish",
-            "fuente": "nombre árabe moderno"
-          }
-        ],
-        "identificacion": "Wadi al-Arish, en su desembocadura en el Mediterráneo",
-        "confianza": "alta",
-        "fuente": "Identificación mayoritaria desde Ishtori Haparchi (s. XIV)",
-        "render": "punto",
-        "coordenada_estado": "verificada",
-        "fuente_coordenada": "Wikipedia, \"Wadi al-Arish\" / \"Brook of Egypt\"",
-        "referencias": [
-          "Jos 15:4",
-          "Jos 15:47",
-          "Nm 34:5",
-          "1Re 8:65"
-        ],
-        "tramo": 4,
-        "orden": 36,
-        "segmento": "sur",
-        "pertenece_a": [
-          "juda"
-        ],
-        "nota": "Josué 15:4 dice que aquí \"la frontera terminaba en el Mar\": el torrente de Egipto (uadi estacional, hoy Wadi al-Arish) marca el cierre occidental de todo el límite sur de Judá, en su desembocadura en el Mediterráneo cerca de la ciudad de El-Arish. No confundir con el río Nilo: es un uadi estacional del Sinaí, mucho más próximo a Canaán.",
-        "advertencia": "Aunque el mismo mar Mediterráneo cierra también el límite oeste de Judá (ver \"mar-grande\", tramo 3, segmento norte), este es un tramo de costa distinto, ~85 km al sur, junto a la desembocadura de este torrente.",
-        "precision": "sitio",
-        "tribu_posterior": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          33.80649,
-          31.14571
         ]
       }
     }

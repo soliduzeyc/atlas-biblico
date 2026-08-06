@@ -183,7 +183,7 @@ Pero Neftóah (Lifta) está al **este** de Quiryat-Jearim (Deir el-ʽAzar). Al t
 | Carcá | Qarqá |
 | Subida de Acrabim | subida de Aqrabim |
 
-Buscar con la grafía equivocada no devuelve "no hay nada": devuelve silencio, que es peor, porque se confunde con "la obra no trata este lugar". Ver `investigacion-judah-sur-tramo.md`, §5 bis.
+Buscar con la grafía equivocada no devuelve "no hay nada": devuelve silencio, que es peor, porque se confunde con "la obra no trata este lugar". Ver `investigacion-limite-sur-juda.md`, §1, donde se documenta que *Perspicacia* y el consenso académico usan los mismos tres manantiales del Néguev con los nombres bíblicos intercambiados.
 
 ---
 
