@@ -1,8 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
 import AtlasMap from '../components/AtlasMap.astro';
+
+// La frontera de Judá se levantó en dos tandas, con esquemas y marcos de
+// referencia distintos, así que los archivos se mantienen separados. La página
+// los muestra juntos: la tribu tiene una sola frontera.
+const fuentes = [
+  { url: '/data/judah-benjamin-limite.geojson', etiqueta: 'Frontera norte · con Benjamín (Josué 15 / Josué 18)' },
+  { url: '/data/limite-sur-juda.geojson', etiqueta: 'Frontera sur · Cadés-Barnea (Josué 15:1-4 / Números 34)' },
+];
 ---
 
-<Base title="Límite Judá–Benjamín · Atlas Bíblico">
-  <AtlasMap geojsonUrl="/data/judah-benjamin-limite.geojson" title="Límite Judá–Benjamín" />
+<Base title="Límite de Judá · Atlas Bíblico">
+  <AtlasMap fuentes={fuentes} title="Límite de Judá" />
 </Base>

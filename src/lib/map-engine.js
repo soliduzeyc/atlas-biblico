@@ -163,7 +163,7 @@ function popupHTML(p) {
 }
 
 export async function initAtlasMap(root) {
-  const geojsonUrl = root.dataset.geojsonUrl;
+  const fuentes = JSON.parse(root.dataset.fuentes || '[]');
   const mapEl = root.querySelector('[data-role="map"]');
   const railEl = root.querySelector('[data-role="rail"]');
   const tallyEl = root.querySelector('[data-role="tally"]');
@@ -177,16 +177,47 @@ export async function initAtlasMap(root) {
   // se comen el panel entero y solo caben dos lugares de la lista.
   const compact = window.matchMedia('(max-width: 820px)').matches;
 
-  const res = await fetch(geojsonUrl);
-  const DATA = await res.json();
+  // Una tribu puede tener su frontera repartida en varios archivos, levantados
+  // en tandas distintas. Se cargan todos y cada archivo pasa a ser un tramo:
+  // así la página muestra la frontera completa sin fundir los datos en disco,
+  // que conservan su procedencia y su esquema propios.
+  const cargas = await Promise.all(fuentes.map(async (f) => {
+    const res = await fetch(f.url);
+    const data = await res.json();
+    return { fuente: f, data };
+  }));
 
-  const F = adaptFeatures(DATA.features.slice())
-    .sort((a, b) => a.properties.orden - b.properties.orden);
+  const DATA = cargas[0]?.data || { features: [], metadata: {} };
+  const segmentosLabels = {};
+
+  const F = [];
+  cargas.forEach(({ fuente, data }, i) => {
+    // Clave de agrupación: una por archivo cuando hay varios.
+    const clave = cargas.length > 1 ? `f${i}` : (null);
+    const etiqueta = fuente.etiqueta || data.metadata?.titulo || null;
+    if (clave && etiqueta) segmentosLabels[clave] = etiqueta;
+
+    adaptFeatures(data.features.slice()).forEach(feat => {
+      if (clave) feat.properties.segmento = clave;
+      F.push(feat);
+    });
+  });
+  // El orden es relativo a cada archivo, así que solo ordena dentro del grupo.
+  F.sort((a, b) =>
+    String(a.properties.segmento ?? '').localeCompare(String(b.properties.segmento ?? '')) ||
+    a.properties.orden - b.properties.orden);
   const byId = Object.fromEntries(F.map(f => [f.properties.id, f]));
   const POS = computePositions(F);
   F.forEach(f => { f.properties.__hasPos = !!POS[f.properties.id]; });
 
-  if (subtitleEl && DATA.metadata?.pasajes) subtitleEl.textContent = DATA.metadata.pasajes.join(' · ');
+  if (subtitleEl) {
+    // Reúne los pasajes de todos los archivos cargados, sin repetirlos.
+    const pasajes = [...new Set(cargas.flatMap(({ data }) => {
+      const m = data.metadata || {};
+      return m.pasajes || [m.pasaje_base, m.pasaje_paralelo].filter(Boolean);
+    }))];
+    if (pasajes.length) subtitleEl.textContent = pasajes.join(' · ');
+  }
 
   const map = L.map(mapEl, { zoomControl: true, attributionControl: true }).setView([31.79, 35.12], 10);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -353,14 +384,17 @@ export async function initAtlasMap(root) {
   }
 
   function renderFullList() {
-    const segmentoLabels = DATA.metadata?.segmentos || {};
+    const segmentoLabels = { ...(DATA.metadata?.segmentos || {}), ...segmentosLabels };
     let h = '';
     for (const [seg, group] of groupBySegmento(F)) {
       if (segmentoLabels[seg]) h += `<div class="segmento">${esc(segmentoLabels[seg])}</div>`;
       const tramos = [...new Set(group.map(f => f.properties.tramo))]
         .sort((a, b) => (typeof a === 'number' && typeof b === 'number') ? a - b : String(a).localeCompare(String(b)));
+      // Un solo tramo bajo un segmento ya titulado no necesita su propia
+      // cabecera: repetiría lo que acaba de leerse.
+      const ocultarTramo = tramos.length === 1 && !!segmentoLabels[seg];
       tramos.forEach(t => {
-        h += `<div class="tramo">${esc(tramoLabel(t))}</div>`;
+        if (!ocultarTramo) h += `<div class="tramo">${esc(tramoLabel(t))}</div>`;
         group.filter(f => f.properties.tramo === t).forEach(f => { h += rowHTML(f, null); });
       });
     }
@@ -383,7 +417,7 @@ export async function initAtlasMap(root) {
   }
 
   function buildRail() {
-    const segmentoLabels = DATA.metadata?.segmentos || {};
+    // Las cabeceras de tramo las pinta renderFullList; aquí solo el armazón.
     const openAttr = compact ? '' : ' open';
     let h = `<details class="fold ctrls-fold"${openAttr}>
       <summary>Opciones de visualización</summary>

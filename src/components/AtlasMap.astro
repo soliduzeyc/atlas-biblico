@@ -2,15 +2,29 @@
 import '../styles/tokens.css';
 import 'leaflet/dist/leaflet.css';
 
+interface Fuente {
+  url: string;
+  etiqueta?: string;
+}
+
 interface Props {
-  geojsonUrl: string;
+  /** Un solo archivo. Para varios tramos de una misma tribu, usar `fuentes`. */
+  geojsonUrl?: string;
+  /** Varios archivos en una vista: cada uno se agrupa como un tramo aparte. */
+  fuentes?: Fuente[];
   title: string;
 }
 
-const { geojsonUrl, title } = Astro.props;
+const { geojsonUrl, fuentes, title } = Astro.props;
+
+const listaFuentes: Fuente[] = fuentes && fuentes.length
+  ? fuentes
+  : geojsonUrl
+    ? [{ url: geojsonUrl }]
+    : [];
 ---
 
-<div class="atlas-app" data-geojson-url={geojsonUrl}>
+<div class="atlas-app" data-fuentes={JSON.stringify(listaFuentes)}>
   <header class="hdr">
     <h1>{title}</h1>
     <span class="sub" data-role="subtitle"></span>
