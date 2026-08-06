@@ -8,6 +8,66 @@ import { buildIndex, search as runSearch } from './search.js';
 const CONF = { alta: '#5F7248', media: '#B0813C', baja: '#8A8C85' };
 const SIG = { verificada: '●', provisional: '◍', pendiente: '○', no_aplica: '▤' };
 
+/**
+ * Los archivos de datos del atlas no comparten un esquema idéntico: se han ido
+ * levantando en tandas distintas. Esta capa los lleva a la forma canónica al
+ * cargar, sin tocar el archivo en disco, para que un archivo nuevo no obligue a
+ * reescribir el motor ni a editar datos ya investigados.
+ *
+ * Sin esto un archivo sin `pertenece_a` tumba la página entera: popupHTML hace
+ * `p.pertenece_a.map(...)` y lanza TypeError antes de pintar el primer marcador.
+ */
+function adaptFeatures(features) {
+  features.forEach(f => {
+    const p = f.properties;
+
+    // "notas" (plural) en las tandas nuevas.
+    if (p.nota == null && p.notas != null) p.nota = p.notas;
+
+    // Sin coordenada_estado: se deduce de si hay geometría. No inventa nada,
+    // solo traduce lo que el archivo ya afirma al vocabulario del motor.
+    if (!p.coordenada_estado) {
+      p.coordenada_estado = f.geometry ? 'provisional' : 'pendiente';
+    }
+
+    // Algunas tandas usan "provisional" como valor de confianza; la escala
+    // canónica es alta/media/baja. Se refleja como intermedia para el color.
+    if (!CONF[p.confianza]) p.confianza = p.confianza === 'provisional' ? 'media' : 'baja';
+
+    // aliases: unos archivos usan {forma}, otros {nombre}.
+    if (Array.isArray(p.aliases)) {
+      p.aliases = p.aliases.map(a => (a && a.forma == null && a.nombre != null)
+        ? { ...a, forma: a.nombre } : a);
+    }
+
+    if (!Array.isArray(p.pertenece_a)) p.pertenece_a = [];
+    if (p.identificacion === undefined) p.identificacion = null;
+
+    // identificacion_disputada -> la forma que ya dibuja el motor.
+    if (!p.lectura_alternativa && p.identificacion_disputada) {
+      const dq = p.identificacion_disputada;
+      const coord = dq.coordenada_alternativa;
+      p.lectura_alternativa = {
+        etiqueta: 'Lectura alternativa',
+        identificacion: dq.lectura_alternativa || null,
+        fuente: dq.fuente_alternativa || null,
+        coordenada_estado: 'derivada',
+        geometry: Array.isArray(coord) ? { type: 'Point', coordinates: coord } : null,
+        derivacion: Array.isArray(coord) ? { radio_halo_m: 0 } : null,
+        nota: dq.lectura_adoptada ? `Lectura adoptada por este archivo: ${dq.lectura_adoptada}` : null
+      };
+    }
+  });
+  return features;
+}
+
+/** Etiqueta del encabezado de tramo: acepta entero o cadena ("sur_juda"). */
+function tramoLabel(t) {
+  if (typeof t === 'number') return `Tramo ${t}`;
+  const s = String(t).replace(/[_-]+/g, ' ').trim();
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
 function haversineKm(p, q) {
   const R = 6371, dLat = (q[1] - p[1]) * Math.PI / 180, dLon = (q[0] - p[0]) * Math.PI / 180;
   const s = Math.sin(dLat / 2) ** 2 + Math.cos(p[1] * Math.PI / 180) * Math.cos(q[1] * Math.PI / 180) * Math.sin(dLon / 2) ** 2;
@@ -84,8 +144,9 @@ function popupHTML(p) {
     + `<span class="tag">${est}</span>`
     + (p.precision ? `<span class="tag">${p.precision}</span>` : '')
     + (p.tribu_posterior ? `<span class="tag dan">Después: Dan</span>` : '') + `</div>`;
-  h += `<dl class="meta"><dt>Texto</dt><dd>${p.referencias.join(' · ')}</dd>`;
-  h += `<dt>Tribu</dt><dd>${p.pertenece_a.map(x => x === 'juda' ? 'Judá' : 'Benjamín').join(' y ')}</dd>`;
+  h += `<dl class="meta"><dt>Texto</dt><dd>${(p.referencias || []).join(' · ')}</dd>`;
+  if (p.pertenece_a && p.pertenece_a.length)
+    h += `<dt>Tribu</dt><dd>${p.pertenece_a.map(x => x === 'juda' ? 'Judá' : 'Benjamín').join(' y ')}</dd>`;
   if (p.fuente) h += `<dt>Fuente</dt><dd>${p.fuente}</dd>`;
   h += `</dl>`;
   if (p.coordenada_estado === 'pendiente' && p.__hasPos)
@@ -119,7 +180,8 @@ export async function initAtlasMap(root) {
   const res = await fetch(geojsonUrl);
   const DATA = await res.json();
 
-  const F = DATA.features.slice().sort((a, b) => a.properties.orden - b.properties.orden);
+  const F = adaptFeatures(DATA.features.slice())
+    .sort((a, b) => a.properties.orden - b.properties.orden);
   const byId = Object.fromEntries(F.map(f => [f.properties.id, f]));
   const POS = computePositions(F);
   F.forEach(f => { f.properties.__hasPos = !!POS[f.properties.id]; });
@@ -295,9 +357,10 @@ export async function initAtlasMap(root) {
     let h = '';
     for (const [seg, group] of groupBySegmento(F)) {
       if (segmentoLabels[seg]) h += `<div class="segmento">${esc(segmentoLabels[seg])}</div>`;
-      const tramos = [...new Set(group.map(f => f.properties.tramo))].sort((a, b) => a - b);
+      const tramos = [...new Set(group.map(f => f.properties.tramo))]
+        .sort((a, b) => (typeof a === 'number' && typeof b === 'number') ? a - b : String(a).localeCompare(String(b)));
       tramos.forEach(t => {
-        h += `<div class="tramo">Tramo ${t}</div>`;
+        h += `<div class="tramo">${esc(tramoLabel(t))}</div>`;
         group.filter(f => f.properties.tramo === t).forEach(f => { h += rowHTML(f, null); });
       });
     }

@@ -3,7 +3,8 @@ import Base from '../layouts/Base.astro';
 import TribesMap from '../components/TribesMap.astro';
 
 const tribus = [
-  { nombre: 'Judá', href: '/judah', disponible: true },
+  { nombre: 'Judá', href: '/judah', disponible: true, detalle: 'límite norte, con Benjamín' },
+  { nombre: 'Judá — límite sur', href: '/judah-sur', disponible: true, detalle: 'Cadés-Barnea, Josué 15:1-4' },
   { nombre: 'Benjamín', disponible: false },
   { nombre: 'Efraín', disponible: false },
   { nombre: 'Manasés', disponible: false },
@@ -28,7 +29,10 @@ const tribus = [
     <ul class="tribu-list">
       {tribus.map((t) => (
         t.disponible ? (
-          <li class="tribu on"><a href={t.href}>{t.nombre}</a></li>
+          <li class="tribu on">
+            <a href={t.href}>{t.nombre}</a>
+            {t.detalle && <em class="detalle">{t.detalle}</em>}
+          </li>
         ) : (
           <li class="tribu"><span>{t.nombre}</span><em>próximamente</em></li>
         )
@@ -90,4 +94,12 @@ const tribus = [
     font-weight: 500;
   }
   .tribu.on a:hover { color: var(--olive); }
+  .tribu .detalle {
+    font-style: normal;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    color: var(--ash);
+    text-transform: none;
+  }
 </style>

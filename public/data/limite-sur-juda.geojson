@@ -1,0 +1,358 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "titulo": "Limite sur de Juda",
+    "version": "1.0",
+    "pasaje_base": "Josue 15:1-4 (TNM 2019)",
+    "pasaje_paralelo": "Numeros 34:3-5",
+    "fuentes_primarias": [
+      "Traduccion del Nuevo Mundo 2019",
+      "Perspicacia para comprender las Escrituras (1988), arts. Cades, Addar, Azmon"
+    ],
+    "advertencia_principal": "Perspicacia (1988) y el consenso academico mayoritario asignan nombres biblicos INTERCAMBIADOS a los mismos tres manantiales del Neguev (Qedeis, Qudeirat, Qeseimeh). Este archivo adopta la lectura de Perspicacia y registra la alternativa en el campo 'identificacion_disputada' de cada registro afectado. Ningun punto debe presentarse como definitivo.",
+    "validacion_geometrica": {
+      "metodo": "Comparacion de las distancias declaradas en Perspicacia contra las coordenadas obtenidas de fuentes independientes",
+      "resultados": [
+        "Cades-barnea -> Hazar-adar: Perspicacia ~9 km / calculado 9.28 km",
+        "Cades-barnea -> Azmon: Perspicacia ~14 km / calculado 14.56 km",
+        "Monotonia de longitud este-oeste confirmada: 34.484 -> 34.423 -> 34.367"
+      ],
+      "conclusion": "Las coordenadas son consistentes con las distancias de Perspicacia. Lo disputado no son las coordenadas sino la asignacion de nombres."
+    },
+    "conteo": {
+      "verificada": 0,
+      "provisional": 5,
+      "baja": 5,
+      "total": 10
+    },
+    "fuentes_rechazadas": [
+      {
+        "item": "Coordenadas leidas de la lamina 'Tribus y jueces' del folleto gl (2003)",
+        "motivo": "Los mapas de las publicaciones son referencia visual, nunca fuente numerica. Confirmaron cualitativamente que Qades y Azmon estan en el extremo sur, nada mas."
+      },
+      {
+        "item": "Linea de costa moderna de la cuenca sur del mar Salado",
+        "motivo": "La cuenca se seco en los anos setenta y hoy son piscinas de evaporacion industrial. Usarla como 'bahia que da al sur' seria un anacronismo."
+      }
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "orden": 1,
+        "id": "mar-salado-bahia-sur",
+        "nombre": "Extremo del mar Salado (bahía que da al sur)",
+        "referencias": [
+          "Josué 15:2"
+        ],
+        "tramo": "sur_juda",
+        "render": "zona",
+        "confianza": "baja",
+        "precision": null,
+        "fuente": null,
+        "notas": "Punto de arranque del límite sur. No trazado: la cuenca sur del mar Salado se secó en los años setenta y hoy son piscinas de evaporación industrial, por lo que la línea de costa moderna NO representa la bahía del texto bíblico. Requiere una fuente de paleo-línea de costa antes de dibujarse."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "orden": 2,
+        "id": "subida-acrabim",
+        "nombre": "Subida de Acrabim",
+        "referencias": [
+          "Josué 15:3",
+          "Números 34:4",
+          "Jueces 1:36"
+        ],
+        "tramo": "sur_juda",
+        "render": "punto",
+        "confianza": "provisional",
+        "precision": "localidad",
+        "fuente": "Wikidata Q7371401 / GNS Unique Feature ID -779224 (30°54'24\"N, 35°7'54\"E)",
+        "aliases": [
+          {
+            "nombre": "Maalé Acrabim",
+            "fuente": "hebreo moderno"
+          },
+          {
+            "nombre": "Scorpions Ascent / Paso del Escorpión",
+            "fuente": "toponimia moderna"
+          }
+        ],
+        "notas": "ADVERTENCIA: historicalsitesinisrael.com señala que las fuentes, incluida la Biblia, solo permiten una determinación general de la zona, no una ubicación exacta. El punto corresponde al paso moderno (ruta 227) que la mayoría de investigadores identifica con la subida. Tratar como referencia de zona, no como sitio puntual."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.13167,
+          30.90667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "orden": 3,
+        "id": "desierto-zin",
+        "nombre": "Desierto de Zin",
+        "referencias": [
+          "Josué 15:1",
+          "Josué 15:3"
+        ],
+        "tramo": "sur_juda",
+        "render": "zona",
+        "confianza": "baja",
+        "precision": null,
+        "fuente": null,
+        "notas": "Región, no punto. Sin polígono trazado: falta una fuente citable de su extensión. Se ubica entre la Subida de Acrabim y Cades-barnea según el orden del texto."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "orden": 4,
+        "id": "cades-barnea",
+        "nombre": "Cades-barnea",
+        "referencias": [
+          "Josué 15:3",
+          "Números 34:4",
+          "Deuteronomio 1:19"
+        ],
+        "tramo": "sur_juda",
+        "render": "punto",
+        "confianza": "provisional",
+        "precision": "sitio",
+        "fuente": "OpenBible.info, ficha 'Ein Qedeis' (30.583378, 34.484081; precisión declarada 100 m), coordenada derivada de Anchor Yale Bible Dictionary, Eerdmans, GeoNames, OpenStreetMap y Wikidata",
+        "aliases": [
+          {
+            "nombre": "ʽAin Qedeis",
+            "fuente": "Perspicacia (1988), art. Cades"
+          },
+          {
+            "nombre": "Meribá-cades",
+            "fuente": "Números 27:14"
+          },
+          {
+            "nombre": "En-mispat",
+            "fuente": "Génesis 14:7"
+          }
+        ],
+        "notas": "Las dos lecturas usan los MISMOS tres manantiales pero intercambian los nombres biblicos. Validacion geometrica: Perspicacia declara ~9 km de Cades-barnea a Hazar-adar y ~14 km a Azmon; con estas coordenadas dan 9.28 km y 14.56 km respectivamente. Las distancias confirman que Perspicacia trabajaba con estos mismos sitios.",
+        "identificacion_disputada": {
+          "lectura_adoptada": "Perspicacia (1988) identifica Cades-barnea con ʽAin Qedeis, por ser el manantial mas oriental, lo que encaja con el recorrido este-oeste de Numeros 34:3-5.",
+          "lectura_alternativa": "El consenso academico mayoritario identifica Cades-barnea con Tell el-Qudeirat (30.64806, 34.42278), por ser el manantial mas grande y tener tres fortalezas de la Edad del Hierro excavadas (Cohen 1976-1982).",
+          "coordenada_alternativa": [
+            34.42278,
+            30.64806
+          ],
+          "fuente_alternativa": "Wikipedia 'Tell el-Qudeirat'; Biblical Archaeology Society; Cohen y Bernick-Greenberg, IAA Reports 44 (2007)"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.484081,
+          30.583378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "orden": 5,
+        "id": "hezron",
+        "nombre": "Hezrón",
+        "referencias": [
+          "Josué 15:3",
+          "Números 34:4"
+        ],
+        "tramo": "sur_juda",
+        "render": "inferido",
+        "confianza": "baja",
+        "precision": null,
+        "fuente": null,
+        "notas": "Sin identificacion propia. Varias obras de referencia (BiblicalTraining, Religion Wiki citando Aharoni) lo consideran probablemente el mismo lugar que Hazar-adar. Se interpola entre Cades-barnea y Adar."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "orden": 6,
+        "id": "adar",
+        "nombre": "Adar (Hazar-adar)",
+        "referencias": [
+          "Josué 15:3",
+          "Números 34:4"
+        ],
+        "tramo": "sur_juda",
+        "render": "punto",
+        "confianza": "provisional",
+        "precision": "sitio",
+        "fuente": "Wikipedia 'Tell el-Qudeirat' (30.64806, 34.42278), sitio excavado 1956 y 1976-1982",
+        "aliases": [
+          {
+            "nombre": "Hazar-adar",
+            "fuente": "Números 34:4"
+          },
+          {
+            "nombre": "ʽAin el-Qudeirat",
+            "fuente": "Perspicacia (1988), art. Cades"
+          },
+          {
+            "nombre": "Tell el-Qudeirat",
+            "fuente": "arqueología"
+          }
+        ],
+        "notas": "Mismo intercambio de nombres descrito en Cades-barnea. La coordenada es solida; lo disputado es que nombre biblico le corresponde.",
+        "identificacion_disputada": {
+          "lectura_adoptada": "Perspicacia (1988) asigna ʽAin el-Qudeirat a Hazar-adar.",
+          "lectura_alternativa": "OpenBible.info da Ein Qedeis como identificacion de mayor confianza para Hazar-adar (45%), y el consenso academico reserva Tell el-Qudeirat para Cades-barnea.",
+          "coordenada_alternativa": [
+            34.484081,
+            30.583378
+          ],
+          "fuente_alternativa": "OpenBible.info, ficha 'Hazar-addar'"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.42278,
+          30.64806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "orden": 7,
+        "id": "carca",
+        "nombre": "Carca",
+        "referencias": [
+          "Josué 15:3"
+        ],
+        "tramo": "sur_juda",
+        "render": "inferido",
+        "confianza": "baja",
+        "precision": null,
+        "fuente": null,
+        "aliases": [
+          {
+            "nombre": "Karka / Karkaa",
+            "fuente": "otras versiones"
+          }
+        ],
+        "notas": "Holman Illustrated Bible Dictionary: ubicacion precisa desconocida. CONFLICTO DE FUENTES: OpenBible.info asigna ʽAin Qoseimeh a Carca con confianza media, pero Perspicacia asigna ese mismo manantial a Azmon. Como el proyecto sigue a Perspicacia, Carca queda sin coordenada y se interpola entre Adar y Azmon."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "orden": 8,
+        "id": "azmon",
+        "nombre": "Azmón",
+        "referencias": [
+          "Josué 15:4",
+          "Números 34:4, 5"
+        ],
+        "tramo": "sur_juda",
+        "render": "punto",
+        "confianza": "provisional",
+        "precision": "localidad",
+        "fuente": "OpenBible.info, ficha 'Ain Qoseimeh' (30.666667, 34.366667), coordenada del manantial",
+        "aliases": [
+          {
+            "nombre": "ʽAin el-Qeseimeh",
+            "fuente": "Perspicacia (1988), art. Cades"
+          },
+          {
+            "nombre": "El Kusaimeh / Qoseimeh",
+            "fuente": "toponimia árabe"
+          }
+        ],
+        "notas": "Precision 'localidad': OpenBible declara la coordenada como punto dentro del asentamiento moderno, no del yacimiento. Validado por distancia: 14.56 km desde ʽAin Qedeis, frente a los ~14 km que declara Perspicacia.",
+        "identificacion_disputada": {
+          "lectura_adoptada": "Perspicacia (1988) identifica Azmon con ʽAin el-Qeseimeh.",
+          "lectura_alternativa": "OpenBible.info da ʽAin Qoseimeh como Azmon con confianza MUY BAJA, prefiriendo Ain Muweileh; y asigna Qoseimeh a Carca con confianza media. El ESV Archaeology Study Bible admite ambos candidatos (Ain Qoseimeh o Ain Muweilih).",
+          "fuente_alternativa": "OpenBible.info, ficha 'Azmon'; ESV Archaeology Study Bible"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.366667,
+          30.666667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "orden": 9,
+        "id": "valle-torrencial-egipto",
+        "nombre": "Valle torrencial de Egipto",
+        "referencias": [
+          "Josué 15:4",
+          "Números 34:5"
+        ],
+        "tramo": "sur_juda",
+        "render": "zona",
+        "confianza": "provisional",
+        "precision": null,
+        "fuente": "Desembocadura: Wikidata Q10719024, Wadi al-Arish (31°8'44.549\"N, 33°48'23.364\"E). Identificacion con el 'arroyo de Egipto': Britannica; Bible Odyssey (HarperCollins Bible Dictionary); Wikipedia 'Brook of Egypt'",
+        "aliases": [
+          {
+            "nombre": "Wadi el-Arish",
+            "fuente": "toponimia moderna"
+          },
+          {
+            "nombre": "Arroyo/torrente de Egipto",
+            "fuente": "otras versiones"
+          },
+          {
+            "nombre": "Rinocorura",
+            "fuente": "Septuaginta, Isaías 27:12"
+          }
+        ],
+        "notas": "TRAZO ESQUEMATICO, NO EL CAUCE REAL: la linea une Azmon con la desembocadura y no sigue los meandros del wadi. El cauce real mide unos 250 km. Reemplazar por la geometria real del wadi cuando se consiga. DISIDENCIA: Nadav Naaman propone el arroyo Besor, al sur de Gaza, en lugar del Wadi el-Arish."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.366667,
+            30.666667
+          ],
+          [
+            33.80649,
+            31.14571
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "orden": 10,
+        "id": "mar-grande",
+        "nombre": "Mar Grande (Mediterráneo)",
+        "referencias": [
+          "Josué 15:4",
+          "Josué 15:12"
+        ],
+        "tramo": "sur_juda",
+        "render": "zona",
+        "confianza": "provisional",
+        "precision": null,
+        "fuente": "Ya trazado parcialmente en el archivo del límite norte (Judá-Benjamín) como zona 'Mar Grande'",
+        "notas": "Terminal occidental del limite sur. La costa entre la desembocadura del Wadi el-Arish y el limite oeste de Juda queda pendiente de trazar como un solo segmento continuo."
+      },
+      "geometry": null
+    }
+  ]
+}
